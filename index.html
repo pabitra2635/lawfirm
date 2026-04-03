@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Pinnacle | Best Lawyers in Patna, Bihar</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0A1F44',
+                            lightBlue: '#153163',
+                            gold: '#C9A14A',
+                            goldHover: '#B38D3F',
+                            bg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(10, 31, 68, 0.85), rgba(10, 31, 68, 0.95)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased relative">
+
+    <nav class="bg-brand-blue text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center cursor-pointer" onclick="showHome()">
+                    <i class="fa-solid fa-scale-balanced text-brand-gold text-3xl mr-3"></i>
+                    <span class="font-serif font-bold text-2xl tracking-wide">Legal<span class="text-brand-gold">Pinnacle</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="hover:text-brand-gold transition" onclick="showHome()">About Us</a>
+                    <a href="#practice-areas" class="hover:text-brand-gold transition" onclick="showHome()">Practice Areas</a>
+                    <a href="#lawyers" class="hover:text-brand-gold transition" onclick="showHome()">Our Teams</a>
+                    <a href="#contact" class="hover:text-brand-gold transition" onclick="showHome()">Contact</a>
+                    <a href="tel:+916202579262" class="flex items-center text-brand-gold font-semibold">
+                        <i class="fa-solid fa-phone mr-2"></i> +91 62025 79262
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-lightBlue pb-4 px-4 space-y-3">
+            <a href="#about" class="block text-white hover:text-brand-gold py-2" onclick="showHome()">About Us</a>
+            <a href="#practice-areas" class="block text-white hover:text-brand-gold py-2" onclick="showHome()">Practice Areas</a>
+            <a href="#lawyers" class="block text-white hover:text-brand-gold py-2" onclick="showHome()">Our Teams</a>
+            <a href="#contact" class="block text-white hover:text-brand-gold py-2" onclick="showHome()">Contact</a>
+        </div>
+    </nav>
+
+    <main id="app-content">
+        <div id="home-view">
+            <section class="hero-bg text-white py-24 md:py-32 relative">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Best Lawyers in <span class="text-brand-gold">Patna, Bihar</span>
+                    </h1>
+                    <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
+                        Connect with experienced, verified advocates near you. Expert legal advocacy you can trust at Legal Pinnacle.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="#lawyers" class="bg-brand-gold hover:bg-brand-goldHover text-brand-blue font-bold py-4 px-8 rounded shadow-lg transition duration-300 text-lg">
+                            Meet Our Team
+                        </a>
+                        <a href="#contact" class="bg-transparent border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-blue font-bold py-4 px-8 rounded shadow-lg transition duration-300 text-lg">
+                            Inquiry Now
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-10 z-10">
+                <div class="bg-white rounded-xl shadow-xl p-6 border border-gray-100">
+                    <form onsubmit="event.preventDefault(); filterLawyers();" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="md:col-span-1">
+                            <label class="block text-sm font-semibold text-gray-600 mb-1">Practice Area</label>
+                            <select id="filter-area" class="w-full border-gray-300 rounded p-3 bg-gray-50 focus:border-brand-gold focus:ring-brand-gold outline-none">
+                                <option value="all">All Areas</option>
+                                <option value="Dispute Resolution">Dispute Resolution</option>
+                                <option value="Corporate Advisory">Corporate Advisory</option>
+                                <option value="Real Estate & Construction Law">Real Estate Law</option>
+                                <option value="Banking And Finance">Banking & Finance</option>
+                                <option value="Restructuring And Insolvency">Insolvency</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-1">
+                            <label class="block text-sm font-semibold text-gray-600 mb-1">Location</label>
+                            <select id="filter-location" class="w-full border-gray-300 rounded p-3 bg-gray-50 focus:border-brand-gold focus:ring-brand-gold outline-none">
+                                <option value="all">All Patna</option>
+                                <option value="High Court Area">High Court Area</option>
+                                <option value="Kankarbagh">Kankarbagh</option>
+                                <option value="Boring Road">Boring Road</option>
+                                <option value="Rajendra Nagar">Rajendra Nagar</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-1">
+                            <label class="block text-sm font-semibold text-gray-600 mb-1">Experience</label>
+                            <select id="filter-experience" class="w-full border-gray-300 rounded p-3 bg-gray-50 focus:border-brand-gold focus:ring-brand-gold outline-none">
+                                <option value="0">Any Experience</option>
+                                <option value="5">5+ Years</option>
+                                <option value="10">10+ Years</option>
+                                <option value="15">15+ Years</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-1 flex items-end">
+                            <button type="submit" class="w-full bg-brand-blue hover:bg-brand-lightBlue text-white font-semibold py-3 px-4 rounded transition duration-300 flex justify-center items-center">
+                                <i class="fa-solid fa-magnifying-glass mr-2"></i> Search
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="search-results-area" class="hidden mt-8 border-t border-gray-100 pt-8 transition-all duration-300">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-serif text-2xl text-brand-blue font-bold">Search Results</h3>
+                            <button type="button" onclick="closeSearchResults()" class="text-gray-500 hover:text-red-500 font-semibold text-sm flex items-center transition duration-300">
+                                <i class="fa-solid fa-xmark mr-1"></i> Clear Search
+                            </button>
+                        </div>
+                        <div id="search-results-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        </div>
+                        <div id="search-no-results" class="hidden text-center py-10 bg-gray-50 rounded-lg border border-gray-100">
+                            <i class="fa-solid fa-search text-gray-300 text-5xl mb-4"></i>
+                            <h3 class="text-xl font-serif text-gray-600">No lawyers found matching your criteria.</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-10">
+                        <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our History</h2>
+                        <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold">Welcome To Legal Pinnacle</h3>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mt-4"></div>
+                    </div>
+                    
+                    <div class="max-w-4xl mx-auto text-gray-600 space-y-6 text-center md:text-justify leading-relaxed">
+                        <p>At <strong>Legal Pinnacle</strong>, foresight, expertise and innovation are at the core of everything we do. Our Core Values are the 3 C’s – Character, Competence, Commitment. We have been at the forefront of innovation in the Indian legal market, often breaking new ground to deliver complex, practical solutions for our clients.</p>
+                        
+                        <p>Legal Pinnacle (L.P.) is a replete and premier law firm, established to serve as a single-window legal service provider in a dynamic commercial environment. It brings to the fore, legal promptness, excellence and efficiency across various sectors and practice areas pertaining to the legal domain.</p>
+                        
+                        <p>What distinguishes the firm from its peers is the approach which is:<br>
+                        • <strong>High Degree of Partner Involvement</strong> in all deals and transactions.<br>
+                        • <strong>High Quality Legal Advice</strong> meeting the most exacting standards.<br>
+                        • <strong>Availability and Responsiveness</strong> at all times.<br>
+                        • <strong>Legal Research and Analysis Based Advisory.</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-brand-blue text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold text-brand-gold">Numbers Speak For Themselves!</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-brand-lightBlue">
+                        <div>
+                            <div class="text-5xl font-bold font-serif mb-2">100+</div>
+                            <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Corporate Clients</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-bold font-serif mb-2">70+</div>
+                            <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Expert Attorneys</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-bold font-serif mb-2">84+</div>
+                            <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Legal Awards</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-bold font-serif mb-2">900+</div>
+                            <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Successful Cases</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="practice-areas" class="py-20 bg-brand-bg">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our Services</h2>
+                        <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold">Our Practice Areas</h3>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mt-4"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Restructuring And Insolvency</h4>
+                            <p class="text-xs text-gray-500">Guiding clients through complex financial challenges.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-coins"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Banking And Finance</h4>
+                            <p class="text-xs text-gray-500">Trusted advice for compliance and transactions.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Real Estate & Construction</h4>
+                            <p class="text-xs text-gray-500">Expert advice on contracts and compliance.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Corporate Advisory</h4>
+                            <p class="text-xs text-gray-500">Guidance on governance, mergers, and planning.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Commercial Advisory & M&A</h4>
+                            <p class="text-xs text-gray-500">Negotiations and business growth strategies.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Dispute Resolution</h4>
+                            <p class="text-xs text-gray-500">Expert mediation and arbitration services.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Technology & Media</h4>
+                            <p class="text-xs text-gray-500">Intellectual property and digital rights.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-satellite-dish"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Telecommunications</h4>
+                            <p class="text-xs text-gray-500">Regulatory issues for seamless connectivity.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Environmental & Governance</h4>
+                            <p class="text-xs text-gray-500">Compliance, regulations, and sustainability.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Infrastructure & Energy</h4>
+                            <p class="text-xs text-gray-500">Guidance on projects and operations.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Capital Markets</h4>
+                            <p class="text-xs text-gray-500">Expert advice on securities and transactions.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
+                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <h4 class="font-serif font-bold text-brand-blue mb-2">Ecommerce & Technology</h4>
+                            <p class="text-xs text-gray-500">Digital rights and Ecommerce compliance.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lawyers" class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                        <div>
+                            <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Legal Pinnacle</h2>
+                            <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold">Our Teams</h3>
+                        </div>
+                        <a href="#" class="mt-4 md:mt-0 text-brand-blue font-semibold hover:text-brand-gold flex items-center">
+                            View All <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <div id="lawyers-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    </div>
+                    
+                    <div id="no-results" class="hidden text-center py-10">
+                        <i class="fa-solid fa-search text-gray-300 text-5xl mb-4"></i>
+                        <h3 class="text-xl font-serif text-gray-600">No lawyers found matching your criteria.</h3>
+                        <button onclick="resetFilters()" class="mt-4 text-brand-gold underline">Reset Filters</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-brand-bg">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Client Stories</h2>
+                        <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold">Our Testimonials</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-lg shadow-md relative">
+                            <i class="fa-solid fa-quote-left text-brand-gold opacity-20 text-5xl absolute top-4 left-4"></i>
+                            <div class="flex text-brand-gold mb-4 relative z-10">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic relative z-10">"The Legal Pinnacle team truly puts their clients first. They took the time to understand my needs and provided personalized solutions that exceeded my expectations. Their client-centered approach made me feel valued and supported throughout the process."</p>
+                            <div class="font-bold text-brand-blue">- Kunal Sharma</div>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-md relative">
+                            <i class="fa-solid fa-quote-left text-brand-gold opacity-20 text-5xl absolute top-4 left-4"></i>
+                            <div class="flex text-brand-gold mb-4 relative z-10">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic relative z-10">"I had an excellent experience with the Legal Pinnacle advocate team. Their professionalism and expertise in handling my case were outstanding. They were always available to answer my questions and provided clear guidance. I highly recommend them."</p>
+                            <div class="font-bold text-brand-blue">- Aman Mishra</div>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-md relative">
+                            <i class="fa-solid fa-quote-left text-brand-gold opacity-20 text-5xl absolute top-4 left-4"></i>
+                            <div class="flex text-brand-gold mb-4 relative z-10">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic relative z-10">"Legal Pinnacle handled my case with the utmost professionalism and efficiency. Their attention to detail and commitment to resolving my legal issues quickly was impressive. I felt confident knowing I had a skilled team advocating for me."</p>
+                            <div class="font-bold text-brand-blue">- Manisha</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-brand-gold py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold mb-4">Expert Legal Advocacy You Can Trust</h2>
+                    <p class="text-brand-blue mb-8 text-lg">Our team of highly skilled and experienced advocates specializes in a wide range of legal areas, ensuring that we can meet all your legal needs with precision and expertise.</p>
+                    <a href="#contact" class="inline-block bg-brand-blue text-white font-bold py-4 px-10 rounded shadow-lg hover:bg-brand-lightBlue transition duration-300 text-lg">
+                        Inquiry Now
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="profile-view" class="hidden bg-gray-50 py-10 min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="showHome()" class="mb-6 text-brand-blue font-semibold hover:text-brand-gold flex items-center transition">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Directory
+                </button>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" id="profile-content">
+                </div>
+            </div>
+        </div>
+
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Get In Touch</h2>
+                        <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold mb-6">Contact Us</h3>
+                        <p class="text-gray-600 mb-8">Fill out the form below and our team will connect you with the right legal expert for your case within 24 hours.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-brand-bg rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-blue">Office Location</h4>
+                                    <p class="text-gray-600">Housing Board Colony, East Indira Nagar,<br>Kankarbagh, Patna, Bihar 800020</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-brand-bg rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-blue">Phone</h4>
+                                    <p class="text-gray-600">+91 62025 79262 <br> +91 612 355 9440 <br> +91 72559 49277</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-brand-bg rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-blue">Email</h4>
+                                    <p class="text-gray-600">help@legalpinnacle.in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <form id="contact-form" onsubmit="submitForm(event)" class="bg-white p-8 rounded-lg shadow-lg border border-gray-100 mb-8">
+                            <h4 class="font-serif text-2xl font-bold text-brand-blue mb-6">Request Callback</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Full Name</label>
+                                    <input type="text" required class="w-full border border-gray-300 rounded p-3 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Phone Number</label>
+                                    <input type="tel" required class="w-full border border-gray-300 rounded p-3 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm text-gray-600 mb-1">Case Type</label>
+                                <select class="w-full border border-gray-300 rounded p-3 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                                    <option>Dispute Resolution</option>
+                                    <option>Corporate Advisory</option>
+                                    <option>Real Estate Dispute</option>
+                                    <option>Banking / Finance</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm text-gray-600 mb-1">Brief Description</label>
+                                <textarea rows="3" class="w-full border border-gray-300 rounded p-3 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-blue text-white font-bold py-3 px-4 rounded hover:bg-brand-lightBlue transition duration-300">
+                                Send Request
+                            </button>
+                            <div id="form-success" class="hidden mt-4 p-3 bg-green-100 text-green-700 rounded text-center text-sm font-semibold">
+                                Request sent successfully! We will contact you soon.
+                            </div>
+                        </form>
+
+                        <div class="rounded-lg overflow-hidden h-48 shadow-md">
+                            <iframe src="https://maps.google.com/maps?q=legal%20pinnacle&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brand-blue text-white pt-16 pb-8 border-t-4 border-brand-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-scale-balanced text-brand-gold text-2xl mr-2"></i>
+                        <span class="font-serif font-bold text-xl tracking-wide">Legal<span class="text-brand-gold">Pinnacle</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">A leading full service/multi-disciplinary Indian law firm offering transactional, regulatory, advisory, dispute resolution, and allied services.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-lightBlue flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-lightBlue flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-lightBlue flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-lightBlue flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition">Home</a></li>
+                        <li><a href="#about" onclick="showHome()" class="hover:text-brand-gold transition">About Us</a></li>
+                        <li><a href="#practice-areas" onclick="showHome()" class="hover:text-brand-gold transition">Services</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Gallery</a></li>
+                        <li><a href="#contact" onclick="showHome()" class="hover:text-brand-gold transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-white">Practice Areas</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition">Dispute Resolution</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Corporate Advisory</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Real Estate & Construction</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Banking & Finance</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Restructuring & Insolvency</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-white">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><i class="fa-solid fa-phone mr-2 text-brand-gold"></i> +91 62025 79262</li>
+                        <li><i class="fa-solid fa-phone mr-2 text-brand-gold"></i> +91 612 355 9440</li>
+                        <li><i class="fa-solid fa-envelope mr-2 text-brand-gold"></i> help@legalpinnacle.in</li>
+                        <li class="mt-2 text-xs leading-relaxed"><i class="fa-solid fa-location-dot mr-2 text-brand-gold"></i> Housing Board Colony, East Indira Nagar, Kankarbagh, Patna, Bihar 800020</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Legal Pinnacle. All rights reserved.</p>
+                <p class="mt-2 md:mt-0 text-xs">Disclaimer: This platform connects users with lawyers. Use of the platform is subject to our Terms.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/916202579262" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 transition duration-300 z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const lawyers = [
+            {
+                id: 1,
+                name: 'Adv. Harsh',
+                experience: 15,
+                specialization: 'Dispute Resolution',
+                rating: 4.9,
+                reviews: 124,
+                location: 'High Court Area',
+                image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400',
+                bio: 'Advocate Harsh is a senior counsel practicing with Legal Pinnacle with over 15 years of distinguished experience. He specializes in complex dispute resolution, civil litigation, and arbitration.',
+                qualifications: 'BA LLB (Hons), LLM - Chanakya National Law University',
+                courts: 'Patna High Court, Supreme Court',
+                casesSolved: '500+'
+            },
+            {
+                id: 2,
+                name: 'Adv. Anuparna Sinha',
+                experience: 12,
+                specialization: 'Corporate Advisory',
+                rating: 4.8,
+                reviews: 98,
+                location: 'Boring Road',
+                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
+                bio: 'Advocate Anuparna Sinha is a renowned corporate law expert. She provides strategic commercial advisory, M&A guidance, and handles complex regulatory compliance for enterprise clients.',
+                qualifications: 'LLB - Patna Law College',
+                courts: 'NCLT, Patna High Court',
+                casesSolved: '300+'
+            },
+            {
+                id: 3,
+                name: 'Adv. Abhishek Kumar Pandey',
+                experience: 10,
+                specialization: 'Real Estate & Construction Law',
+                rating: 4.7,
+                reviews: 65,
+                location: 'Kankarbagh',
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
+                bio: 'An expert in real estate and construction law, Adv. Abhishek helps clients navigate complex land registry issues, infrastructure contracts, and property disputes across Bihar.',
+                qualifications: 'BBA LLB - Symbiosis Law School',
+                courts: 'District Court Patna, Patna High Court',
+                casesSolved: '200+'
+            },
+            {
+                id: 4,
+                name: 'Adv. Sachin Kumar',
+                experience: 14,
+                specialization: 'Banking And Finance',
+                rating: 4.9,
+                reviews: 112,
+                location: 'Rajendra Nagar',
+                image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400',
+                bio: 'Adv. Sachin handles intricate banking and finance matters, including debt recovery, insolvency resolution, and financial compliance for major institutions.',
+                qualifications: 'LLB, LLM - Delhi University',
+                courts: 'DRT, Patna High Court',
+                casesSolved: '400+'
+            },
+            {
+                id: 5,
+                name: 'Adv. Aman Raj',
+                experience: 8,
+                specialization: 'Commercial Advisory And M&A',
+                rating: 4.6,
+                reviews: 45,
+                location: 'Boring Road',
+                image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400',
+                bio: 'Specializing in business registration, compliance, and corporate restructuring, Aman advises many growing startups and established MSMEs in Patna.',
+                qualifications: 'CS, LLB',
+                courts: 'NCLT, High Court',
+                casesSolved: '150+'
+            },
+            {
+                id: 6,
+                name: 'Adv. Sapna Kumari',
+                experience: 11,
+                specialization: 'Technology & Media',
+                rating: 5.0,
+                reviews: 210,
+                location: 'High Court Area',
+                image: 'https://images.unsplash.com/photo-1580820267682-426da823ed65?auto=format&fit=crop&q=80&w=400',
+                bio: 'A veteran in intellectual property, digital rights, and technology law, Adv. Sapna handles high-profile compliance and data protection matters with an unmatched success rate.',
+                qualifications: 'LLB - BHU',
+                courts: 'Supreme Court, Patna High Court',
+                casesSolved: '1000+'
+            },
+            {
+                id: 7,
+                name: 'Adv. Kuldeep Thakur',
+                experience: 9,
+                specialization: 'Environmental & Governance',
+                rating: 4.8,
+                reviews: 75,
+                location: 'Kankarbagh',
+                image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400',
+                bio: 'Specialized legal support in environmental and governance matters. Expert advice on compliance, regulations, and sustainability practices.',
+                qualifications: 'LLB - NLU',
+                courts: 'NGT, Patna High Court',
+                casesSolved: '180+'
+            },
+            {
+                id: 8,
+                name: 'Adv. Pullket Thakur',
+                experience: 7,
+                specialization: 'Restructuring And Insolvency',
+                rating: 4.7,
+                reviews: 55,
+                location: 'High Court Area',
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
+                bio: 'Expert legal services in restructuring and insolvency, guiding clients through complex financial challenges with strategic solutions.',
+                qualifications: 'LLB, MBA',
+                courts: 'NCLT, District Courts',
+                casesSolved: '120+'
+            }
+        ];
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        function submitForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                document.getElementById('form-success').classList.remove('hidden');
+                e.target.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+                setTimeout(() => {
+                    document.getElementById('form-success').classList.add('hidden');
+                }, 5000);
+            }, 1500);
+        }
+
+        function renderLawyers(lawyerArray, gridId = 'lawyers-grid', noResultsId = 'no-results') {
+            const grid = document.getElementById(gridId);
+            const noResults = document.getElementById(noResultsId);
+            grid.innerHTML = '';
+
+            if (lawyerArray.length === 0) {
+                grid.classList.add('hidden');
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            noResults.classList.add('hidden');
+
+            lawyerArray.forEach(lawyer => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg border border-gray-100 overflow-hidden card-hover shadow-md flex flex-col';
+                card.innerHTML = `
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-blue flex items-center">
+                            <i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-serif font-bold text-xl text-brand-blue">${lawyer.name}</h4>
+                            <span class="bg-blue-50 text-brand-blue text-xs font-bold px-2 py-1 rounded flex items-center">
+                                <i class="fa-solid fa-shield-check mr-1 text-green-500"></i> L.P. Team
+                            </span>
+                        </div>
+                        <p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p>
+                        
+                        <div class="space-y-2 mb-6 flex-grow">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fa-solid fa-briefcase w-5 text-gray-400"></i> ${lawyer.experience}+ Years Experience
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fa-solid fa-location-dot w-5 text-gray-400"></i> ${lawyer.location}, Patna
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fa-solid fa-comment-dots w-5 text-gray-400"></i> ${lawyer.reviews} Client Reviews
+                            </div>
+                        </div>
+                        
+                        <button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-bg border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-semibold py-2 rounded transition duration-300">
+                            View Profile
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterLawyers() {
+            const area = document.getElementById('filter-area').value;
+            const location = document.getElementById('filter-location').value;
+            const experience = parseInt(document.getElementById('filter-experience').value);
+
+            const filtered = lawyers.filter(lawyer => {
+                const matchArea = area === 'all' || lawyer.specialization.includes(area) || area.includes(lawyer.specialization);
+                const matchLocation = location === 'all' || lawyer.location === location;
+                const matchExp = lawyer.experience >= experience;
+                return matchArea && matchLocation && matchExp;
+            });
+
+            document.getElementById('search-results-area').classList.remove('hidden');
+            
+            renderLawyers(filtered, 'search-results-grid', 'search-no-results');
+        }
+
+        function closeSearchResults() {
+            document.getElementById('search-results-area').classList.add('hidden');
+            document.getElementById('filter-area').value = 'all';
+            document.getElementById('filter-location').value = 'all';
+            document.getElementById('filter-experience').value = '0';
+        }
+
+        function resetFilters() {
+            document.getElementById('filter-area').value = 'all';
+            document.getElementById('filter-location').value = 'all';
+            document.getElementById('filter-experience').value = '0';
+            renderLawyers(lawyers);
+            closeSearchResults();
+        }
+
+        function showHome() {
+            document.getElementById('profile-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showProfile(id) {
+            const lawyer = lawyers.find(l => l.id === id);
+            if (!lawyer) return;
+
+            const profileContent = document.getElementById('profile-content');
+            profileContent.innerHTML = `
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 sticky top-24">
+                        <img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h2 class="font-serif text-2xl font-bold text-brand-blue mb-1">${lawyer.name}</h2>
+                            <p class="text-brand-gold font-semibold mb-4">${lawyer.specialization}</p>
+                            
+                            <div class="flex items-center text-brand-blue font-bold mb-6 bg-brand-bg p-3 rounded">
+                                <i class="fa-solid fa-star text-brand-gold mr-2 text-xl"></i> 
+                                <span class="text-xl">${lawyer.rating}</span> 
+                                <span class="text-gray-500 font-normal text-sm ml-2">(${lawyer.reviews} reviews)</span>
+                            </div>
+
+                            <div class="space-y-3 mb-8">
+                                <div class="flex items-start">
+                                    <i class="fa-solid fa-location-dot text-gray-400 mt-1 w-6"></i>
+                                    <span class="text-gray-600 text-sm">${lawyer.location}, Patna</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa-solid fa-building-columns text-gray-400 mt-1 w-6"></i>
+                                    <span class="text-gray-600 text-sm">${lawyer.courts}</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa-solid fa-clock text-gray-400 mt-1 w-6"></i>
+                                    <span class="text-gray-600 text-sm">Mon - Sat (10:00 AM - 6:00 PM)</span>
+                                </div>
+                            </div>
+
+                            <a href="#contact" onclick="showHome(); setTimeout(()=>document.getElementById('contact').scrollIntoView(), 100);" class="block text-center w-full bg-brand-blue hover:bg-brand-lightBlue text-white font-bold py-3 rounded shadow transition duration-300 mb-3">
+                                Book Consultation
+                            </a>
+                            <a href="tel:+916202579262" class="block text-center w-full border-2 border-brand-blue text-brand-blue hover:bg-brand-bg font-bold py-3 rounded transition duration-300">
+                                <i class="fa-solid fa-phone mr-2"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                        <h3 class="font-serif text-2xl font-bold text-brand-blue mb-4 border-b pb-2">About Advocate</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">${lawyer.bio}</p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-brand-bg p-4 rounded">
+                                <div class="text-sm text-gray-500 mb-1">Experience</div>
+                                <div class="font-bold text-brand-blue text-lg">${lawyer.experience}+ Years</div>
+                            </div>
+                            <div class="bg-brand-bg p-4 rounded">
+                                <div class="text-sm text-gray-500 mb-1">Cases Handled</div>
+                                <div class="font-bold text-brand-blue text-lg">${lawyer.casesSolved}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                        <h3 class="font-serif text-2xl font-bold text-brand-blue mb-4 border-b pb-2">Qualifications & Credentials</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-graduation-cap text-brand-gold mt-1 mr-3"></i>
+                                <span>${lawyer.qualifications}</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-id-card text-brand-gold mt-1 mr-3"></i>
+                                <span>Registered with Bihar State Bar Council</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-3"></i>
+                                <span>Member of Patna High Court Bar Association</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                        <div class="flex justify-between items-center mb-6 border-b pb-2">
+                            <h3 class="font-serif text-2xl font-bold text-brand-blue">Client Reviews</h3>
+                            <button class="text-brand-gold font-semibold text-sm hover:underline">Write a Review</button>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="border-b border-gray-50 pb-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div class="font-bold text-brand-blue">Anonymous Client</div>
+                                    <div class="text-brand-gold text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                                <div class="text-xs text-gray-400 mb-2">Consulted for ${lawyer.specialization}</div>
+                                <p class="text-gray-600 text-sm">"Very knowledgeable and gave me the right direction for my case. Communication was clear and professional. Highly recommended."</p>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <div class="font-bold text-brand-blue">S. Kumar</div>
+                                    <div class="text-brand-gold text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                                </div>
+                                <div class="text-xs text-gray-400 mb-2">Consulted for ${lawyer.specialization}</div>
+                                <p class="text-gray-600 text-sm">"Great experience. The advocate listened patiently and explained all legal options available to me without rushing."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('profile-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderLawyers(lawyers);
+        });
+    </script>
+</body>
+</html>
