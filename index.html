@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Pinnacle | Best Lawyers in Patna, Bihar</title>
+    <title>Anjaneya Pramana Legal Associates | Best Lawyers in Patna, Bihar</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,11 +18,13 @@
                 extend: {
                     colors: {
                         brand: {
-                            blue: '#0A1F44',
-                            lightBlue: '#153163',
-                            gold: '#C9A14A',
-                            goldHover: '#B38D3F',
-                            bg: '#F8FAFC'
+                            dark: '#261C17', 
+                            brown: '#3A2A22',
+                            card: '#2E221C',
+                            gold: '#D4AF37',
+                            goldHover: '#B5952F',
+                            text: '#FDF6E3',
+                            muted: '#C4B0A1'
                         }
                     },
                     fontFamily: {
@@ -34,13 +36,42 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #261C17; 
+            color: #FDF6E3; 
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            /* Anti-Select Protections */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Allow selection inside forms so users can still type */
+        input, textarea, select {
+            -webkit-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+
         h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Playfair Display', serif; }
         
         .hero-bg {
-            background-image: linear-gradient(rgba(10, 31, 68, 0.85), rgba(10, 31, 68, 0.95)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
+            background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, rgba(38, 28, 23, 1) 60%), 
+                        linear-gradient(135deg, #261C17 0%, #3A2A22 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #D33C16 0%, #ED8F1C 50%, #F4D03F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            padding-bottom: 0.1em;
         }
 
         .card-hover {
@@ -48,61 +79,82 @@
         }
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 15px 30px -5px rgba(212, 175, 55, 0.15), 0 10px 10px -5px rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.5);
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #261C17; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B5952F; }
     </style>
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.keyCode === 123 || 
+               (e.ctrlKey && e.shiftKey && e.keyCode === 73) || 
+               (e.ctrlKey && e.shiftKey && e.keyCode === 74) || 
+               (e.ctrlKey && e.shiftKey && e.keyCode === 67) || 
+               (e.ctrlKey && e.keyCode === 85) || 
+               (e.ctrlKey && e.keyCode === 67)) {
+                e.preventDefault(); return false;
+            }
+        });
+        document.addEventListener('dragstart', e => e.preventDefault());
+    </script>
 </head>
-<body class="text-gray-800 antialiased relative">
+<body class="antialiased relative selection:bg-brand-gold selection:text-brand-dark">
 
-    <nav class="bg-brand-blue text-white sticky top-0 z-50 shadow-lg">
+    <nav class="bg-brand-dark text-brand-text border-b border-brand-gold/20 sticky top-0 z-50 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center cursor-pointer" onclick="showHome()">
-                    <i class="fa-solid fa-scale-balanced text-brand-gold text-3xl mr-3"></i>
-                    <span class="font-serif font-bold text-2xl tracking-wide">Legal<span class="text-brand-gold">Pinnacle</span></span>
+                    <img src="https://i.ibb.co/WpK3nq1S/Whats-App-Image-2026-04-04-at-1-38-32-PM.jpg" alt="Anjaneya Pramana Logo" class="h-12 w-auto mr-3 rounded shadow-[0_0_10px_rgba(212,175,55,0.3)] border border-brand-gold/30">
+                    <span class="font-serif font-bold text-xl md:text-2xl tracking-wide hidden sm:inline-block text-brand-text text-gradient">Anjaneya Pramana</span>
+                    <span class="font-serif font-bold text-xl tracking-wide sm:hidden text-brand-text text-gradient">AP Legal</span>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#about" class="hover:text-brand-gold transition" onclick="showHome()">About Us</a>
-                    <a href="#practice-areas" class="hover:text-brand-gold transition" onclick="showHome()">Practice Areas</a>
-                    <a href="#lawyers" class="hover:text-brand-gold transition" onclick="showHome()">Our Teams</a>
-                    <a href="#contact" class="hover:text-brand-gold transition" onclick="showHome()">Contact</a>
-                    <a href="tel:+916202579262" class="flex items-center text-brand-gold font-semibold">
-                        <i class="fa-solid fa-phone mr-2"></i> +91 62025 79262
+                    <a href="#about" class="text-brand-text hover:text-brand-gold transition" onclick="showHome()">About Firm</a>
+                    <a href="#practice-areas" class="text-brand-text hover:text-brand-gold transition" onclick="showHome()">Practice Areas</a>
+                    <a href="#lawyers" class="text-brand-text hover:text-brand-gold transition" onclick="showHome()">Our Team</a>
+                    <a href="#contact" class="text-brand-text hover:text-brand-gold transition" onclick="showHome()">Contact</a>
+                    <a href="tel:+917066160162" class="flex items-center text-brand-gold font-semibold border border-brand-gold/30 px-4 py-2 rounded hover:bg-brand-gold hover:text-brand-dark transition">
+                        <i class="fa-solid fa-phone mr-2"></i> +91 70661 60162
                     </a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-brand-gold focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-lightBlue pb-4 px-4 space-y-3">
-            <a href="#about" class="block text-white hover:text-brand-gold py-2" onclick="showHome()">About Us</a>
-            <a href="#practice-areas" class="block text-white hover:text-brand-gold py-2" onclick="showHome()">Practice Areas</a>
-            <a href="#lawyers" class="block text-white hover:text-brand-gold py-2" onclick="showHome()">Our Teams</a>
-            <a href="#contact" class="block text-white hover:text-brand-gold py-2" onclick="showHome()">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-brown pb-4 px-4 space-y-3 border-b border-brand-gold/20">
+            <a href="#about" class="block text-brand-text hover:text-brand-gold py-2" onclick="showHome()">About Firm</a>
+            <a href="#practice-areas" class="block text-brand-text hover:text-brand-gold py-2" onclick="showHome()">Practice Areas</a>
+            <a href="#lawyers" class="block text-brand-text hover:text-brand-gold py-2" onclick="showHome()">Our Team</a>
+            <a href="#contact" class="block text-brand-text hover:text-brand-gold py-2" onclick="showHome()">Contact</a>
         </div>
     </nav>
 
     <main id="app-content">
         <div id="home-view">
-            <section class="hero-bg text-white py-24 md:py-32 relative">
+            <section class="hero-bg py-24 md:py-32 relative border-b border-brand-gold/10">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Best Lawyers in <span class="text-brand-gold">Patna, Bihar</span>
+                    <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight text-gradient">
+                        Anjaneya Pramana <br>Legal Associates
                     </h1>
-                    <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
-                        Connect with experienced, verified advocates near you. Expert legal advocacy you can trust at Legal Pinnacle.
+                    <p class="text-lg md:text-2xl text-brand-muted mb-10 max-w-3xl mx-auto">
+                        Dynamic, ethical, and result-oriented legal services. Expert legal advocacy based in Patna, Bihar.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#lawyers" class="bg-brand-gold hover:bg-brand-goldHover text-brand-blue font-bold py-4 px-8 rounded shadow-lg transition duration-300 text-lg">
+                        <a href="#lawyers" class="bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold py-4 px-8 rounded shadow-lg shadow-brand-gold/20 transition duration-300 text-lg">
                             Meet Our Team
                         </a>
-                        <a href="#contact" class="bg-transparent border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-blue font-bold py-4 px-8 rounded shadow-lg transition duration-300 text-lg">
+                        <a href="#contact" class="bg-brand-brown border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-bold py-4 px-8 rounded shadow-lg transition duration-300 text-lg">
                             Inquiry Now
                         </a>
                     </div>
@@ -110,281 +162,361 @@
             </section>
 
             <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-10 z-10">
-                <div class="bg-white rounded-xl shadow-xl p-6 border border-gray-100">
+                <div class="bg-brand-card rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] p-6 border border-brand-gold/30">
                     <form onsubmit="event.preventDefault(); filterLawyers();" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div class="md:col-span-1">
-                            <label class="block text-sm font-semibold text-gray-600 mb-1">Practice Area</label>
-                            <select id="filter-area" class="w-full border-gray-300 rounded p-3 bg-gray-50 focus:border-brand-gold focus:ring-brand-gold outline-none">
+                            <label class="block text-sm font-semibold text-brand-gold mb-1">Practice Area</label>
+                            <select id="filter-area" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
                                 <option value="all">All Areas</option>
-                                <option value="Dispute Resolution">Dispute Resolution</option>
-                                <option value="Corporate Advisory">Corporate Advisory</option>
-                                <option value="Real Estate & Construction Law">Real Estate Law</option>
-                                <option value="Banking And Finance">Banking & Finance</option>
-                                <option value="Restructuring And Insolvency">Insolvency</option>
+                                <option value="Banking">Banking & Finance Law</option>
+                                <option value="Civil">Civil & Commercial</option>
+                                <option value="Criminal">Criminal Law</option>
+                                <option value="Constitutional">Writ Jurisdiction</option>
+                                <option value="Arbitration">Arbitration & Dispute</option>
                             </select>
                         </div>
                         <div class="md:col-span-1">
-                            <label class="block text-sm font-semibold text-gray-600 mb-1">Location</label>
-                            <select id="filter-location" class="w-full border-gray-300 rounded p-3 bg-gray-50 focus:border-brand-gold focus:ring-brand-gold outline-none">
-                                <option value="all">All Patna</option>
-                                <option value="High Court Area">High Court Area</option>
-                                <option value="Kankarbagh">Kankarbagh</option>
-                                <option value="Boring Road">Boring Road</option>
-                                <option value="Rajendra Nagar">Rajendra Nagar</option>
+                            <label class="block text-sm font-semibold text-brand-gold mb-1">Location</label>
+                            <select id="filter-location" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                                <option value="all">All Locations</option>
+                                <option value="Rajeev Nagar">Rajeev Nagar</option>
+                                <option value="Patna">Patna</option>
                             </select>
                         </div>
                         <div class="md:col-span-1">
-                            <label class="block text-sm font-semibold text-gray-600 mb-1">Experience</label>
-                            <select id="filter-experience" class="w-full border-gray-300 rounded p-3 bg-gray-50 focus:border-brand-gold focus:ring-brand-gold outline-none">
-                                <option value="0">Any Experience</option>
-                                <option value="5">5+ Years</option>
-                                <option value="10">10+ Years</option>
-                                <option value="15">15+ Years</option>
+                            <label class="block text-sm font-semibold text-brand-gold mb-1">Role</label>
+                            <select id="filter-experience" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                                <option value="all">All Roles</option>
+                                <option value="advocate">Advocates</option>
+                                <option value="manager">Management</option>
+                                <option value="clerk">Clerks / Munsis</option>
                             </select>
                         </div>
                         <div class="md:col-span-1 flex items-end">
-                            <button type="submit" class="w-full bg-brand-blue hover:bg-brand-lightBlue text-white font-semibold py-3 px-4 rounded transition duration-300 flex justify-center items-center">
+                            <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold py-3 px-4 rounded transition duration-300 flex justify-center items-center">
                                 <i class="fa-solid fa-magnifying-glass mr-2"></i> Search
                             </button>
                         </div>
                     </form>
 
-                    <div id="search-results-area" class="hidden mt-8 border-t border-gray-100 pt-8 transition-all duration-300">
+                    <div id="search-results-area" class="hidden mt-8 border-t border-brand-gold/20 pt-8 transition-all duration-300">
                         <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-serif text-2xl text-brand-blue font-bold">Search Results</h3>
-                            <button type="button" onclick="closeSearchResults()" class="text-gray-500 hover:text-red-500 font-semibold text-sm flex items-center transition duration-300">
+                            <h3 class="font-serif text-2xl text-gradient font-bold">Search Results</h3>
+                            <button type="button" onclick="closeSearchResults()" class="text-brand-muted hover:text-red-400 font-semibold text-sm flex items-center transition duration-300">
                                 <i class="fa-solid fa-xmark mr-1"></i> Clear Search
                             </button>
                         </div>
                         <div id="search-results-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         </div>
-                        <div id="search-no-results" class="hidden text-center py-10 bg-gray-50 rounded-lg border border-gray-100">
-                            <i class="fa-solid fa-search text-gray-300 text-5xl mb-4"></i>
-                            <h3 class="text-xl font-serif text-gray-600">No lawyers found matching your criteria.</h3>
+                        <div id="search-no-results" class="hidden text-center py-10 bg-brand-brown rounded-lg border border-brand-gold/10">
+                            <i class="fa-solid fa-search text-brand-gold/50 text-5xl mb-4"></i>
+                            <h3 class="text-xl font-serif text-brand-muted">No team members found matching criteria.</h3>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="about" class="py-20 bg-white">
+            <section id="about" class="py-20 bg-brand-dark/50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-10">
-                        <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our History</h2>
-                        <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold">Welcome To Legal Pinnacle</h3>
+                    <div class="text-center mb-16">
+                        <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our Profile</h2>
+                        <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Welcome To Anjaneya Pramana</h3>
                         <div class="w-24 h-1 bg-brand-gold mx-auto mt-4"></div>
                     </div>
                     
-                    <div class="max-w-4xl mx-auto text-gray-600 space-y-6 text-center md:text-justify leading-relaxed">
-                        <p>At <strong>Legal Pinnacle</strong>, foresight, expertise and innovation are at the core of everything we do. Our Core Values are the 3 C’s – Character, Competence, Commitment. We have been at the forefront of innovation in the Indian legal market, often breaking new ground to deliver complex, practical solutions for our clients.</p>
-                        
-                        <p>Legal Pinnacle (L.P.) is a replete and premier law firm, established to serve as a single-window legal service provider in a dynamic commercial environment. It brings to the fore, legal promptness, excellence and efficiency across various sectors and practice areas pertaining to the legal domain.</p>
-                        
-                        <p>What distinguishes the firm from its peers is the approach which is:<br>
-                        • <strong>High Degree of Partner Involvement</strong> in all deals and transactions.<br>
-                        • <strong>High Quality Legal Advice</strong> meeting the most exacting standards.<br>
-                        • <strong>Availability and Responsiveness</strong> at all times.<br>
-                        • <strong>Legal Research and Analysis Based Advisory.</strong></p>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                        <div class="order-2 lg:order-1 relative group">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-[#D33C16] to-[#F4D03F] rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                            <div class="relative rounded-lg overflow-hidden border border-brand-gold/40 shadow-2xl bg-brand-card">
+                                <img src="https://i.ibb.co/LDrD2K3j/Whats-App-Image-2026-04-04-at-1-38-06-PM.jpg" alt="Anjaneya Pramana Poster" class="w-full h-auto object-cover transform hover:scale-105 transition duration-500">
+                            </div>
+                        </div>
+
+                        <div class="order-1 lg:order-2 text-brand-muted space-y-6 text-justify leading-relaxed bg-brand-card p-8 rounded-xl border border-brand-gold/10 shadow-2xl">
+                            <p><strong class="text-brand-gold">Anjaneya Pramana Legal Associates</strong> is a dynamic and client-focused law firm based in Patna, Bihar. Founded with a vision to deliver effective, ethical, and result-oriented legal services, the firm combines legal expertise with a practical approach to resolve complex legal issues.</p>
+                            
+                            <p>With a strong commitment to professionalism and justice, we cater to individuals, businesses, and institutions, ensuring personalized attention and strategic legal solutions.</p>
+                            
+                            <h4 class="font-serif font-bold text-2xl text-brand-gold mt-8 mb-4 border-b border-brand-gold/20 pb-2">Our Approach</h4>
+                            <p>We believe that every legal issue requires a tailored strategy. Our approach is:</p>
+                            <ul class="space-y-3 mt-4">
+                                <li class="flex items-start">
+                                    <div class="bg-brand-brown p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
+                                    <span><strong class="text-brand-text">Client-Centric</strong> – Understanding client needs deeply.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-brand-brown p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
+                                    <span><strong class="text-brand-text">Research-Driven</strong> – Strong legal research and case analysis.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-brand-brown p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
+                                    <span><strong class="text-brand-text">Result-Oriented</strong> – Focus on practical and timely outcomes.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-brand-brown p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
+                                    <span><strong class="text-brand-text">Ethical Practice</strong> – Upholding the highest standards of integrity.</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
+                    <div class="mt-20 max-w-5xl mx-auto relative group">
+                        <div class="text-center mb-8">
+                            <h3 class="font-serif text-2xl md:text-3xl text-gradient font-bold">Our Ambition</h3>
+                        </div>
+                        <div class="absolute -inset-1 bg-gradient-to-r from-[#D33C16] to-[#F4D03F] rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative rounded-lg overflow-hidden border border-brand-gold/40 shadow-[0_10px_40px_rgba(0,0,0,0.8)] bg-brand-card">
+                            <img src="https://i.ibb.co/gbnL6xCn/Whats-App-Image-2026-04-04-at-1-39-38-PM.jpg" alt="Our Firm's Ambition" class="w-full h-auto object-cover transform hover:scale-[1.02] transition duration-700">
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
-            <section class="py-16 bg-brand-blue text-white">
+            <section class="py-16 bg-brand-brown/80 border-y border-brand-gold/20 backdrop-blur-sm">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
-                        <h3 class="font-serif text-3xl md:text-4xl font-bold text-brand-gold">Numbers Speak For Themselves!</h3>
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold text-gradient">Numbers Speak For Themselves</h3>
                     </div>
                     
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-brand-lightBlue">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-brand-gold/20">
                         <div>
-                            <div class="text-5xl font-bold font-serif mb-2">100+</div>
-                            <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Corporate Clients</div>
+                            <div class="text-5xl font-bold font-serif mb-2 text-brand-text">100+</div>
+                            <div class="text-sm text-brand-gold font-semibold uppercase tracking-wider">Corporate Clients</div>
                         </div>
                         <div>
-                            <div class="text-5xl font-bold font-serif mb-2">70+</div>
-                            <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Expert Attorneys</div>
+                            <div class="text-5xl font-bold font-serif mb-2 text-brand-text">15+</div>
+                            <div class="text-sm text-brand-gold font-semibold uppercase tracking-wider">Expert Team Members</div>
                         </div>
                         <div>
-                            <div class="text-5xl font-bold font-serif mb-2">84+</div>
-                            <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Legal Awards</div>
+                            <div class="text-5xl font-bold font-serif mb-2 text-brand-text">84+</div>
+                            <div class="text-sm text-brand-gold font-semibold uppercase tracking-wider">Legal Awards</div>
                         </div>
                         <div>
-                            <div class="text-5xl font-bold font-serif mb-2">900+</div>
-                            <div class="text-sm text-gray-300 font-semibold uppercase tracking-wider">Successful Cases</div>
+                            <div class="text-5xl font-bold font-serif mb-2 text-brand-text">900+</div>
+                            <div class="text-sm text-brand-gold font-semibold uppercase tracking-wider">Successful Cases</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="practice-areas" class="py-20 bg-brand-bg">
+            <section id="practice-areas" class="py-20 bg-brand-dark/50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
                         <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our Services</h2>
-                        <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold">Our Practice Areas</h3>
+                        <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Core Practice Areas</h3>
                         <div class="w-24 h-1 bg-brand-gold mx-auto mt-4"></div>
                     </div>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-building-columns"></i>
+                        <div class="bg-brand-card p-6 rounded-lg shadow-lg text-center card-hover border border-brand-gold/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 mx-auto bg-brand-brown border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
+                                    <i class="fa-solid fa-coins"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Banking & Finance Law</h4>
+                                <p class="text-xs text-brand-muted">Expert handling of SARFAESI, DRT matters, and financial compliance.</p>
                             </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Restructuring And Insolvency</h4>
-                            <p class="text-xs text-gray-500">Guiding clients through complex financial challenges.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-coins"></i>
+                        
+                        <div class="bg-brand-card p-6 rounded-lg shadow-lg text-center card-hover border border-brand-gold/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 mx-auto bg-brand-brown border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Civil & Commercial Litigation</h4>
+                                <p class="text-xs text-brand-muted">Strategic representation in diverse civil and commercial disputes.</p>
                             </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Banking And Finance</h4>
-                            <p class="text-xs text-gray-500">Trusted advice for compliance and transactions.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-building"></i>
+
+                        <div class="bg-brand-card p-6 rounded-lg shadow-lg text-center card-hover border border-brand-gold/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 mx-auto bg-brand-brown border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
+                                    <i class="fa-solid fa-gavel"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Criminal Law</h4>
+                                <p class="text-xs text-brand-muted">Assistance with Bail, Quashing of FIRs, and Trial proceedings.</p>
                             </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Real Estate & Construction</h4>
-                            <p class="text-xs text-gray-500">Expert advice on contracts and compliance.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-briefcase"></i>
+
+                        <div class="bg-brand-card p-6 rounded-lg shadow-lg text-center card-hover border border-brand-gold/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 mx-auto bg-brand-brown border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
+                                    <i class="fa-solid fa-landmark"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Constitutional & Writ</h4>
+                                <p class="text-xs text-brand-muted">Handling writ jurisdictions before the Hon’ble High Court.</p>
                             </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Corporate Advisory</h4>
-                            <p class="text-xs text-gray-500">Guidance on governance, mergers, and planning.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-handshake"></i>
+
+                        <div class="bg-brand-card p-6 rounded-lg shadow-lg text-center card-hover border border-brand-gold/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 mx-auto bg-brand-brown border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
+                                    <i class="fa-solid fa-handshake"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Arbitration & Dispute</h4>
+                                <p class="text-xs text-brand-muted">Alternative dispute resolution and arbitration advisory.</p>
                             </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Commercial Advisory & M&A</h4>
-                            <p class="text-xs text-gray-500">Negotiations and business growth strategies.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-scale-balanced"></i>
+
+                        <div class="bg-brand-card p-6 rounded-lg shadow-lg text-center card-hover border border-brand-gold/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 mx-auto bg-brand-brown border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Debt Recovery & NPA</h4>
+                                <p class="text-xs text-brand-muted">Specialized advisory for non-performing asset recoveries.</p>
                             </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Dispute Resolution</h4>
-                            <p class="text-xs text-gray-500">Expert mediation and arbitration services.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-laptop-code"></i>
+
+                        <div class="bg-brand-card p-6 rounded-lg shadow-lg text-center card-hover border border-brand-gold/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 mx-auto bg-brand-brown border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
+                                    <i class="fa-solid fa-file-signature"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">OTS Negotiations</h4>
+                                <p class="text-xs text-brand-muted">Expert guidance on One Time Settlement negotiations with banks.</p>
                             </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Technology & Media</h4>
-                            <p class="text-xs text-gray-500">Intellectual property and digital rights.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-satellite-dish"></i>
+
+                        <div class="bg-brand-card p-6 rounded-lg shadow-lg text-center card-hover border border-brand-gold/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 mx-auto bg-brand-brown border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Corporate Advisory</h4>
+                                <p class="text-xs text-brand-muted">Guidance on governance, mergers, and business planning.</p>
                             </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Telecommunications</h4>
-                            <p class="text-xs text-gray-500">Regulatory issues for seamless connectivity.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-leaf"></i>
-                            </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Environmental & Governance</h4>
-                            <p class="text-xs text-gray-500">Compliance, regulations, and sustainability.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-bolt"></i>
-                            </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Infrastructure & Energy</h4>
-                            <p class="text-xs text-gray-500">Guidance on projects and operations.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Capital Markets</h4>
-                            <p class="text-xs text-gray-500">Expert advice on securities and transactions.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm text-center card-hover border border-gray-100">
-                            <div class="w-16 h-16 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </div>
-                            <h4 class="font-serif font-bold text-brand-blue mb-2">Ecommerce & Technology</h4>
-                            <p class="text-xs text-gray-500">Digital rights and Ecommerce compliance.</p>
                         </div>
                     </div>
                 </div>
             </section>
+            
+            <section class="py-20 bg-brand-brown/80 border-t border-brand-gold/10 relative overflow-hidden backdrop-blur-sm">
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full border border-brand-gold/10 opacity-50"></div>
+                <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full border border-brand-gold/5 opacity-50"></div>
 
-            <section id="lawyers" class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center mb-12">
+                        <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our Track Record</h2>
+                        <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Important Cases Handled</h3>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mt-4"></div>
+                    </div>
+                    
+                    <div class="bg-brand-card p-8 md:p-10 rounded-xl shadow-2xl max-w-4xl mx-auto border border-brand-gold/20">
+                        <ul class="space-y-5">
+                            <li class="flex items-start bg-brand-brown p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
+                                <div class="text-brand-text"><strong class="text-brand-gold">S.A. 197 of 2024:</strong> Poonam Singh Vs The Punjab National Bank & Others</div>
+                            </li>
+                            <li class="flex items-start bg-brand-brown p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
+                                <div class="text-brand-text"><strong class="text-brand-gold">S.A. 21 of 2026:</strong> Dr. Surya Prakash & Others Vs The LIC Housing Finance Limited & Others</div>
+                            </li>
+                            <li class="flex items-start bg-brand-brown p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
+                                <div class="text-brand-text"><strong class="text-brand-gold">S.A. 275 of 2025:</strong> Dr. Surya Prakash Vs The LIC Housing Finance Limited & Others</div>
+                            </li>
+                            <li class="flex items-start bg-brand-brown p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
+                                <div class="text-brand-text"><strong class="text-brand-gold">S.A. 332 of 2024:</strong> Shashi Bhusan & Others Vs The ICICI Bank & Others</div>
+                            </li>
+                            <li class="flex items-start bg-brand-brown p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
+                                <div class="text-brand-text"><strong class="text-brand-gold">S.A. 331 of 2025:</strong> Anita Singh & Others Vs The ICICI Bank & Others</div>
+                            </li>
+                            <li class="flex items-start bg-brand-brown p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
+                                <div class="text-brand-text"><strong class="text-brand-gold">O.A. 225/2025:</strong> The ICICI Bank Vs Anita Singh</div>
+                            </li>
+                            <li class="flex items-start bg-brand-brown p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
+                                <div class="text-brand-text"><strong class="text-brand-gold">O.A. 503/2025:</strong> The ICICI Bank Vs Shashi Bhusan</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lawyers" class="py-20 bg-brand-dark/50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-brand-gold/20 pb-4">
                         <div>
-                            <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Legal Pinnacle</h2>
-                            <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold">Our Teams</h3>
+                            <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Anjaneya Pramana</h2>
+                            <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Our Team</h3>
                         </div>
-                        <a href="#" class="mt-4 md:mt-0 text-brand-blue font-semibold hover:text-brand-gold flex items-center">
-                            View All <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
                     </div>
 
                     <div id="lawyers-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     </div>
                     
                     <div id="no-results" class="hidden text-center py-10">
-                        <i class="fa-solid fa-search text-gray-300 text-5xl mb-4"></i>
-                        <h3 class="text-xl font-serif text-gray-600">No lawyers found matching your criteria.</h3>
-                        <button onclick="resetFilters()" class="mt-4 text-brand-gold underline">Reset Filters</button>
+                        <i class="fa-solid fa-search text-brand-gold/30 text-5xl mb-4"></i>
+                        <h3 class="text-xl font-serif text-brand-muted">No team members found matching your criteria.</h3>
+                        <button onclick="resetFilters()" class="mt-4 text-brand-gold underline hover:text-brand-goldHover">Reset Filters</button>
                     </div>
                 </div>
             </section>
 
-            <section class="py-20 bg-brand-bg">
+            <section class="py-20 bg-brand-brown/80 border-t border-brand-gold/10 backdrop-blur-sm">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
                         <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Client Stories</h2>
-                        <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold">Our Testimonials</h3>
+                        <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Our Testimonials</h3>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mt-4"></div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="bg-white p-8 rounded-lg shadow-md relative">
-                            <i class="fa-solid fa-quote-left text-brand-gold opacity-20 text-5xl absolute top-4 left-4"></i>
-                            <div class="flex text-brand-gold mb-4 relative z-10">
+                        <div class="bg-brand-card border border-brand-gold/20 p-8 rounded-lg shadow-lg relative hover:border-brand-gold/50 transition duration-300">
+                            <i class="fa-solid fa-quote-left text-brand-gold opacity-10 text-6xl absolute top-4 left-4"></i>
+                            <div class="flex text-brand-gold mb-4 relative z-10 text-sm">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-gray-600 mb-6 italic relative z-10">"The Legal Pinnacle team truly puts their clients first. They took the time to understand my needs and provided personalized solutions that exceeded my expectations. Their client-centered approach made me feel valued and supported throughout the process."</p>
-                            <div class="font-bold text-brand-blue">- Kunal Sharma</div>
+                            <p class="text-brand-muted mb-6 italic relative z-10">"The Anjaneya Pramana team truly puts their clients first. They took the time to understand my needs and provided personalized solutions that exceeded my expectations. Their client-centered approach made me feel valued and supported."</p>
+                            <div class="font-bold text-brand-gold border-t border-brand-gold/10 pt-4">- Corporate Client</div>
                         </div>
-                        <div class="bg-white p-8 rounded-lg shadow-md relative">
-                            <i class="fa-solid fa-quote-left text-brand-gold opacity-20 text-5xl absolute top-4 left-4"></i>
-                            <div class="flex text-brand-gold mb-4 relative z-10">
+                        <div class="bg-brand-card border border-brand-gold/20 p-8 rounded-lg shadow-lg relative hover:border-brand-gold/50 transition duration-300">
+                            <i class="fa-solid fa-quote-left text-brand-gold opacity-10 text-6xl absolute top-4 left-4"></i>
+                            <div class="flex text-brand-gold mb-4 relative z-10 text-sm">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-gray-600 mb-6 italic relative z-10">"I had an excellent experience with the Legal Pinnacle advocate team. Their professionalism and expertise in handling my case were outstanding. They were always available to answer my questions and provided clear guidance. I highly recommend them."</p>
-                            <div class="font-bold text-brand-blue">- Aman Mishra</div>
+                            <p class="text-brand-muted mb-6 italic relative z-10">"I had an excellent experience with Mr. Sachin Kumar and his team. Their professionalism and expertise in handling my DRT case were outstanding. They were always available to answer my questions and provided clear guidance."</p>
+                            <div class="font-bold text-brand-gold border-t border-brand-gold/10 pt-4">- Valued Client</div>
                         </div>
-                        <div class="bg-white p-8 rounded-lg shadow-md relative">
-                            <i class="fa-solid fa-quote-left text-brand-gold opacity-20 text-5xl absolute top-4 left-4"></i>
-                            <div class="flex text-brand-gold mb-4 relative z-10">
+                        <div class="bg-brand-card border border-brand-gold/20 p-8 rounded-lg shadow-lg relative hover:border-brand-gold/50 transition duration-300">
+                            <i class="fa-solid fa-quote-left text-brand-gold opacity-10 text-6xl absolute top-4 left-4"></i>
+                            <div class="flex text-brand-gold mb-4 relative z-10 text-sm">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-gray-600 mb-6 italic relative z-10">"Legal Pinnacle handled my case with the utmost professionalism and efficiency. Their attention to detail and commitment to resolving my legal issues quickly was impressive. I felt confident knowing I had a skilled team advocating for me."</p>
-                            <div class="font-bold text-brand-blue">- Manisha</div>
+                            <p class="text-brand-muted mb-6 italic relative z-10">"Anjaneya Pramana Legal Associates handled my case with the utmost professionalism and efficiency. Their attention to detail and commitment to resolving my legal issues quickly was impressive. Highly recommended."</p>
+                            <div class="font-bold text-brand-gold border-t border-brand-gold/10 pt-4">- Private Client</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="bg-brand-gold py-16">
+            <section class="bg-gradient-to-r from-[#D33C16] to-[#F4D03F] py-16 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold mb-4">Expert Legal Advocacy You Can Trust</h2>
-                    <p class="text-brand-blue mb-8 text-lg">Our team of highly skilled and experienced advocates specializes in a wide range of legal areas, ensuring that we can meet all your legal needs with precision and expertise.</p>
-                    <a href="#contact" class="inline-block bg-brand-blue text-white font-bold py-4 px-10 rounded shadow-lg hover:bg-brand-lightBlue transition duration-300 text-lg">
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-dark font-bold mb-4">Expert Legal Advocacy You Can Trust</h2>
+                    <p class="text-brand-dark/80 font-medium mb-8 text-lg max-w-3xl mx-auto">Our team of highly skilled and experienced advocates specializes in a wide range of legal areas, ensuring that we can meet all your legal needs with precision and expertise.</p>
+                    <a href="#contact" class="inline-block bg-brand-dark text-brand-gold font-bold py-4 px-10 rounded shadow-2xl hover:bg-black transition duration-300 text-lg border border-brand-dark/20 hover:text-[#F4D03F]">
                         Inquiry Now
                     </a>
                 </div>
             </section>
         </div>
 
-        <div id="profile-view" class="hidden bg-gray-50 py-10 min-h-screen">
+        <div id="profile-view" class="hidden bg-brand-dark/95 py-10 min-h-screen backdrop-blur-md">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="showHome()" class="mb-6 text-brand-blue font-semibold hover:text-brand-gold flex items-center transition">
+                <button onclick="showHome()" class="mb-6 text-brand-gold font-semibold hover:text-brand-text flex items-center transition bg-brand-card px-4 py-2 rounded border border-brand-gold/20">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Directory
                 </button>
 
@@ -393,82 +525,82 @@
             </div>
         </div>
 
-        <section id="contact" class="py-20 bg-white">
+        <section id="contact" class="py-20 bg-brand-dark/80 relative backdrop-blur-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div>
                         <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Get In Touch</h2>
-                        <h3 class="font-serif text-3xl md:text-4xl text-brand-blue font-bold mb-6">Contact Us</h3>
-                        <p class="text-gray-600 mb-8">Fill out the form below and our team will connect you with the right legal expert for your case within 24 hours.</p>
+                        <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold mb-6">Contact Us</h3>
+                        <p class="text-brand-muted mb-8 border-l-2 border-brand-gold pl-4 italic">Fill out the form below and our team will connect you with the right legal expert for your case within 24 hours.</p>
                         
                         <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-bg rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0">
+                            <div class="flex items-start bg-brand-brown p-4 rounded-lg border border-brand-gold/10">
+                                <div class="w-12 h-12 bg-brand-card rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0 border border-brand-gold/20">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-brand-blue">Office Location</h4>
-                                    <p class="text-gray-600">Housing Board Colony, East Indira Nagar,<br>Kankarbagh, Patna, Bihar 800020</p>
+                                    <h4 class="font-bold text-brand-gold mb-1">Office Location</h4>
+                                    <p class="text-brand-muted text-sm">Kurji Ashiana Road, Near Platinum Library,<br>Above Elite Food Junction, Rajeev Nagar,<br>A.G Colony-800024</p>
                                 </div>
                             </div>
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-bg rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0">
+                            <div class="flex items-start bg-brand-brown p-4 rounded-lg border border-brand-gold/10">
+                                <div class="w-12 h-12 bg-brand-card rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0 border border-brand-gold/20">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-brand-blue">Phone</h4>
-                                    <p class="text-gray-600">+91 62025 79262 <br> +91 612 355 9440 <br> +91 72559 49277</p>
+                                    <h4 class="font-bold text-brand-gold mb-1">Phone</h4>
+                                    <p class="text-brand-muted text-sm">+91 70661 60162 <br> +91 74829 14219</p>
                                 </div>
                             </div>
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-bg rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0">
+                            <div class="flex items-start bg-brand-brown p-4 rounded-lg border border-brand-gold/10">
+                                <div class="w-12 h-12 bg-brand-card rounded flex items-center justify-center text-brand-gold text-xl mr-4 shrink-0 border border-brand-gold/20">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-brand-blue">Email</h4>
-                                    <p class="text-gray-600">help@legalpinnacle.in</p>
+                                    <h4 class="font-bold text-brand-gold mb-1">Email</h4>
+                                    <p class="text-brand-muted text-sm">anjaneyapramanalegalassociates@gmail.com</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <form id="contact-form" onsubmit="submitForm(event)" class="bg-white p-8 rounded-lg shadow-lg border border-gray-100 mb-8">
-                            <h4 class="font-serif text-2xl font-bold text-brand-blue mb-6">Request Callback</h4>
+                        <form id="contact-form" onsubmit="submitForm(event)" class="bg-brand-card p-8 rounded-lg shadow-2xl border border-brand-gold/20 mb-8">
+                            <h4 class="font-serif text-2xl font-bold text-gradient mb-6 border-b border-brand-gold/10 pb-2">Request Callback</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div>
-                                    <label class="block text-sm text-gray-600 mb-1">Full Name</label>
-                                    <input type="text" required class="w-full border border-gray-300 rounded p-3 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                                    <label class="block text-sm text-brand-muted mb-1">Full Name</label>
+                                    <input type="text" id="contact-name" required class="w-full bg-brand-brown border border-brand-gold/30 rounded p-3 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none transition">
                                 </div>
                                 <div>
-                                    <label class="block text-sm text-gray-600 mb-1">Phone Number</label>
-                                    <input type="tel" required class="w-full border border-gray-300 rounded p-3 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                                    <label class="block text-sm text-brand-muted mb-1">Phone Number</label>
+                                    <input type="tel" id="contact-phone" required class="w-full bg-brand-brown border border-brand-gold/30 rounded p-3 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none transition">
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label class="block text-sm text-gray-600 mb-1">Case Type</label>
-                                <select class="w-full border border-gray-300 rounded p-3 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
-                                    <option>Dispute Resolution</option>
-                                    <option>Corporate Advisory</option>
-                                    <option>Real Estate Dispute</option>
-                                    <option>Banking / Finance</option>
+                                <label class="block text-sm text-brand-muted mb-1">Case Type</label>
+                                <select id="contact-case" class="w-full bg-brand-brown border border-brand-gold/30 rounded p-3 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none transition">
+                                    <option>Banking & Finance / DRT</option>
+                                    <option>Civil & Commercial</option>
+                                    <option>Criminal Law</option>
+                                    <option>Writ / Constitutional</option>
                                     <option>Other</option>
                                 </select>
                             </div>
                             <div class="mb-6">
-                                <label class="block text-sm text-gray-600 mb-1">Brief Description</label>
-                                <textarea rows="3" class="w-full border border-gray-300 rounded p-3 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none"></textarea>
+                                <label class="block text-sm text-brand-muted mb-1">Brief Description</label>
+                                <textarea id="contact-desc" rows="3" class="w-full bg-brand-brown border border-brand-gold/30 rounded p-3 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none transition"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-brand-blue text-white font-bold py-3 px-4 rounded hover:bg-brand-lightBlue transition duration-300">
+                            <button type="submit" class="w-full bg-gradient-to-r from-[#D33C16] to-[#F4D03F] text-brand-dark font-bold py-3 px-4 rounded hover:opacity-90 transition duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
                                 Send Request
                             </button>
-                            <div id="form-success" class="hidden mt-4 p-3 bg-green-100 text-green-700 rounded text-center text-sm font-semibold">
+                            <div id="form-success" class="hidden mt-4 p-3 bg-brand-brown border border-green-500 text-green-400 rounded text-center text-sm font-semibold">
                                 Request sent successfully! We will contact you soon.
                             </div>
                         </form>
 
-                        <div class="rounded-lg overflow-hidden h-48 shadow-md">
-                            <iframe src="https://maps.google.com/maps?q=legal%20pinnacle&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="rounded-lg overflow-hidden h-48 shadow-lg border border-brand-gold/20 opacity-80 hover:opacity-100 transition duration-300">
+                            <iframe src="https://maps.google.com/maps?q=Kurji%20Ashiana%20Road,%20Near%20Platinum%20Library,%20Rajeev%20Nagar,%20Patna&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -476,420 +608,69 @@
         </section>
     </main>
 
-    <footer class="bg-brand-blue text-white pt-16 pb-8 border-t-4 border-brand-gold">
+    <footer class="bg-[#1A110B] text-brand-text pt-16 pb-8 border-t-2 border-brand-gold">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div class="md:col-span-1">
                     <div class="flex items-center mb-4">
-                        <i class="fa-solid fa-scale-balanced text-brand-gold text-2xl mr-2"></i>
-                        <span class="font-serif font-bold text-xl tracking-wide">Legal<span class="text-brand-gold">Pinnacle</span></span>
+                        <img src="https://i.ibb.co/WpK3nq1S/Whats-App-Image-2026-04-04-at-1-38-32-PM.jpg" alt="Anjaneya Pramana Logo" class="h-10 w-auto mr-3 rounded shadow-[0_0_10px_rgba(212,175,55,0.3)] border border-brand-gold/30">
+                        <span class="font-serif font-bold text-xl tracking-wide text-brand-text text-gradient">Anjaneya Pramana</span>
                     </div>
-                    <p class="text-gray-400 text-sm mb-6">A leading full service/multi-disciplinary Indian law firm offering transactional, regulatory, advisory, dispute resolution, and allied services.</p>
+                    <p class="text-brand-muted text-sm mb-6">A dynamic and client-focused Indian law firm offering transactional, regulatory, advisory, and dispute resolution services.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-8 h-8 rounded-full bg-brand-lightBlue flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-brand-lightBlue flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-brand-lightBlue flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-brand-lightBlue flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-4 text-white">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="#" class="hover:text-brand-gold transition">Home</a></li>
-                        <li><a href="#about" onclick="showHome()" class="hover:text-brand-gold transition">About Us</a></li>
-                        <li><a href="#practice-areas" onclick="showHome()" class="hover:text-brand-gold transition">Services</a></li>
-                        <li><a href="#" class="hover:text-brand-gold transition">Gallery</a></li>
-                        <li><a href="#contact" onclick="showHome()" class="hover:text-brand-gold transition">Contact Us</a></li>
+                    <h4 class="font-bold text-lg mb-4 text-brand-gold">Quick Links</h4>
+                    <ul class="space-y-2 text-brand-muted text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-gold/50"></i> Home</a></li>
+                        <li><a href="#about" onclick="showHome()" class="hover:text-brand-gold transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-gold/50"></i> About Firm</a></li>
+                        <li><a href="#practice-areas" onclick="showHome()" class="hover:text-brand-gold transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-gold/50"></i> Practice Areas</a></li>
+                        <li><a href="#lawyers" onclick="showHome()" class="hover:text-brand-gold transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-gold/50"></i> Our Team</a></li>
+                        <li><a href="#contact" onclick="showHome()" class="hover:text-brand-gold transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-gold/50"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-4 text-white">Practice Areas</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="#" class="hover:text-brand-gold transition">Dispute Resolution</a></li>
-                        <li><a href="#" class="hover:text-brand-gold transition">Corporate Advisory</a></li>
-                        <li><a href="#" class="hover:text-brand-gold transition">Real Estate & Construction</a></li>
-                        <li><a href="#" class="hover:text-brand-gold transition">Banking & Finance</a></li>
-                        <li><a href="#" class="hover:text-brand-gold transition">Restructuring & Insolvency</a></li>
+                    <h4 class="font-bold text-lg mb-4 text-brand-gold">Core Practice Areas</h4>
+                    <ul class="space-y-2 text-brand-muted text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition">Banking & Finance Law</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Civil & Commercial Litigation</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Criminal Law</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Constitutional & Writ Jurisdiction</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition">Arbitration & Dispute Resolution</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-4 text-white">Contact Info</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><i class="fa-solid fa-phone mr-2 text-brand-gold"></i> +91 62025 79262</li>
-                        <li><i class="fa-solid fa-phone mr-2 text-brand-gold"></i> +91 612 355 9440</li>
-                        <li><i class="fa-solid fa-envelope mr-2 text-brand-gold"></i> help@legalpinnacle.in</li>
-                        <li class="mt-2 text-xs leading-relaxed"><i class="fa-solid fa-location-dot mr-2 text-brand-gold"></i> Housing Board Colony, East Indira Nagar, Kankarbagh, Patna, Bihar 800020</li>
+                    <h4 class="font-bold text-lg mb-4 text-brand-gold">Contact Info</h4>
+                    <ul class="space-y-2 text-brand-muted text-sm">
+                        <li><i class="fa-solid fa-phone mr-2 text-brand-gold"></i> +91 70661 60162</li>
+                        <li><i class="fa-solid fa-phone mr-2 text-brand-gold"></i> +91 74829 14219</li>
+                        <li><i class="fa-solid fa-envelope mr-2 text-brand-gold"></i> anjaneyapramanalegalassociates@gmail.com</li>
+                        <li class="mt-3 text-xs leading-relaxed bg-brand-brown p-3 rounded border border-brand-gold/10"><i class="fa-solid fa-location-dot mr-2 text-brand-gold"></i> Kurji Ashiana Road, Near Platinum Library, Above Elite Food Junction, Rajeev Nagar, A.G Colony-800024</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>&copy; 2026 Legal Pinnacle. All rights reserved.</p>
-                <p class="mt-2 md:mt-0 text-xs">Disclaimer: This platform connects users with lawyers. Use of the platform is subject to our Terms.</p>
+            <div class="border-t border-brand-gold/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-brand-muted/70">
+                <p>&copy; 2026 Anjaneya Pramana Legal Associates. All rights reserved.</p>
+                <p class="mt-2 md:mt-0 text-xs">Disclaimer: This platform connects users with our legal services. Use of the platform is subject to our Terms.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/916202579262" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 transition duration-300 z-50">
+    <a href="https://wa.me/917066160162" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:bg-brand-goldHover hover:scale-110 transition duration-300 z-50">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <script>
-        const lawyers = [
-            {
-                id: 1,
-                name: 'Adv. Harsh',
-                experience: 15,
-                specialization: 'Dispute Resolution',
-                rating: 4.9,
-                reviews: 124,
-                location: 'High Court Area',
-                image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400',
-                bio: 'Advocate Harsh is a senior counsel practicing with Legal Pinnacle with over 15 years of distinguished experience. He specializes in complex dispute resolution, civil litigation, and arbitration.',
-                qualifications: 'BA LLB (Hons), LLM - Chanakya National Law University',
-                courts: 'Patna High Court, Supreme Court',
-                casesSolved: '500+'
-            },
-            {
-                id: 2,
-                name: 'Adv. Anuparna Sinha',
-                experience: 12,
-                specialization: 'Corporate Advisory',
-                rating: 4.8,
-                reviews: 98,
-                location: 'Boring Road',
-                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
-                bio: 'Advocate Anuparna Sinha is a renowned corporate law expert. She provides strategic commercial advisory, M&A guidance, and handles complex regulatory compliance for enterprise clients.',
-                qualifications: 'LLB - Patna Law College',
-                courts: 'NCLT, Patna High Court',
-                casesSolved: '300+'
-            },
-            {
-                id: 3,
-                name: 'Adv. Abhishek Kumar Pandey',
-                experience: 10,
-                specialization: 'Real Estate & Construction Law',
-                rating: 4.7,
-                reviews: 65,
-                location: 'Kankarbagh',
-                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
-                bio: 'An expert in real estate and construction law, Adv. Abhishek helps clients navigate complex land registry issues, infrastructure contracts, and property disputes across Bihar.',
-                qualifications: 'BBA LLB - Symbiosis Law School',
-                courts: 'District Court Patna, Patna High Court',
-                casesSolved: '200+'
-            },
-            {
-                id: 4,
-                name: 'Adv. Sachin Kumar',
-                experience: 14,
-                specialization: 'Banking And Finance',
-                rating: 4.9,
-                reviews: 112,
-                location: 'Rajendra Nagar',
-                image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400',
-                bio: 'Adv. Sachin handles intricate banking and finance matters, including debt recovery, insolvency resolution, and financial compliance for major institutions.',
-                qualifications: 'LLB, LLM - Delhi University',
-                courts: 'DRT, Patna High Court',
-                casesSolved: '400+'
-            },
-            {
-                id: 5,
-                name: 'Adv. Aman Raj',
-                experience: 8,
-                specialization: 'Commercial Advisory And M&A',
-                rating: 4.6,
-                reviews: 45,
-                location: 'Boring Road',
-                image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400',
-                bio: 'Specializing in business registration, compliance, and corporate restructuring, Aman advises many growing startups and established MSMEs in Patna.',
-                qualifications: 'CS, LLB',
-                courts: 'NCLT, High Court',
-                casesSolved: '150+'
-            },
-            {
-                id: 6,
-                name: 'Adv. Sapna Kumari',
-                experience: 11,
-                specialization: 'Technology & Media',
-                rating: 5.0,
-                reviews: 210,
-                location: 'High Court Area',
-                image: 'https://images.unsplash.com/photo-1580820267682-426da823ed65?auto=format&fit=crop&q=80&w=400',
-                bio: 'A veteran in intellectual property, digital rights, and technology law, Adv. Sapna handles high-profile compliance and data protection matters with an unmatched success rate.',
-                qualifications: 'LLB - BHU',
-                courts: 'Supreme Court, Patna High Court',
-                casesSolved: '1000+'
-            },
-            {
-                id: 7,
-                name: 'Adv. Kuldeep Thakur',
-                experience: 9,
-                specialization: 'Environmental & Governance',
-                rating: 4.8,
-                reviews: 75,
-                location: 'Kankarbagh',
-                image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400',
-                bio: 'Specialized legal support in environmental and governance matters. Expert advice on compliance, regulations, and sustainability practices.',
-                qualifications: 'LLB - NLU',
-                courts: 'NGT, Patna High Court',
-                casesSolved: '180+'
-            },
-            {
-                id: 8,
-                name: 'Adv. Pullket Thakur',
-                experience: 7,
-                specialization: 'Restructuring And Insolvency',
-                rating: 4.7,
-                reviews: 55,
-                location: 'High Court Area',
-                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
-                bio: 'Expert legal services in restructuring and insolvency, guiding clients through complex financial challenges with strategic solutions.',
-                qualifications: 'LLB, MBA',
-                courts: 'NCLT, District Courts',
-                casesSolved: '120+'
-            }
-        ];
-
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-
-        function submitForm(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                document.getElementById('form-success').classList.remove('hidden');
-                e.target.reset();
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-                
-                setTimeout(() => {
-                    document.getElementById('form-success').classList.add('hidden');
-                }, 5000);
-            }, 1500);
-        }
-
-        function renderLawyers(lawyerArray, gridId = 'lawyers-grid', noResultsId = 'no-results') {
-            const grid = document.getElementById(gridId);
-            const noResults = document.getElementById(noResultsId);
-            grid.innerHTML = '';
-
-            if (lawyerArray.length === 0) {
-                grid.classList.add('hidden');
-                noResults.classList.remove('hidden');
-                return;
-            }
-
-            grid.classList.remove('hidden');
-            noResults.classList.add('hidden');
-
-            lawyerArray.forEach(lawyer => {
-                const card = document.createElement('div');
-                card.className = 'bg-white rounded-lg border border-gray-100 overflow-hidden card-hover shadow-md flex flex-col';
-                card.innerHTML = `
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-blue flex items-center">
-                            <i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-serif font-bold text-xl text-brand-blue">${lawyer.name}</h4>
-                            <span class="bg-blue-50 text-brand-blue text-xs font-bold px-2 py-1 rounded flex items-center">
-                                <i class="fa-solid fa-shield-check mr-1 text-green-500"></i> L.P. Team
-                            </span>
-                        </div>
-                        <p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p>
-                        
-                        <div class="space-y-2 mb-6 flex-grow">
-                            <div class="flex items-center text-sm text-gray-600">
-                                <i class="fa-solid fa-briefcase w-5 text-gray-400"></i> ${lawyer.experience}+ Years Experience
-                            </div>
-                            <div class="flex items-center text-sm text-gray-600">
-                                <i class="fa-solid fa-location-dot w-5 text-gray-400"></i> ${lawyer.location}, Patna
-                            </div>
-                            <div class="flex items-center text-sm text-gray-600">
-                                <i class="fa-solid fa-comment-dots w-5 text-gray-400"></i> ${lawyer.reviews} Client Reviews
-                            </div>
-                        </div>
-                        
-                        <button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-bg border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-semibold py-2 rounded transition duration-300">
-                            View Profile
-                        </button>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function filterLawyers() {
-            const area = document.getElementById('filter-area').value;
-            const location = document.getElementById('filter-location').value;
-            const experience = parseInt(document.getElementById('filter-experience').value);
-
-            const filtered = lawyers.filter(lawyer => {
-                const matchArea = area === 'all' || lawyer.specialization.includes(area) || area.includes(lawyer.specialization);
-                const matchLocation = location === 'all' || lawyer.location === location;
-                const matchExp = lawyer.experience >= experience;
-                return matchArea && matchLocation && matchExp;
-            });
-
-            document.getElementById('search-results-area').classList.remove('hidden');
-            
-            renderLawyers(filtered, 'search-results-grid', 'search-no-results');
-        }
-
-        function closeSearchResults() {
-            document.getElementById('search-results-area').classList.add('hidden');
-            document.getElementById('filter-area').value = 'all';
-            document.getElementById('filter-location').value = 'all';
-            document.getElementById('filter-experience').value = '0';
-        }
-
-        function resetFilters() {
-            document.getElementById('filter-area').value = 'all';
-            document.getElementById('filter-location').value = 'all';
-            document.getElementById('filter-experience').value = '0';
-            renderLawyers(lawyers);
-            closeSearchResults();
-        }
-
-        function showHome() {
-            document.getElementById('profile-view').classList.add('hidden');
-            document.getElementById('home-view').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function showProfile(id) {
-            const lawyer = lawyers.find(l => l.id === id);
-            if (!lawyer) return;
-
-            const profileContent = document.getElementById('profile-content');
-            profileContent.innerHTML = `
-                <div class="lg:col-span-1">
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 sticky top-24">
-                        <img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-64 object-cover">
-                        <div class="p-6">
-                            <h2 class="font-serif text-2xl font-bold text-brand-blue mb-1">${lawyer.name}</h2>
-                            <p class="text-brand-gold font-semibold mb-4">${lawyer.specialization}</p>
-                            
-                            <div class="flex items-center text-brand-blue font-bold mb-6 bg-brand-bg p-3 rounded">
-                                <i class="fa-solid fa-star text-brand-gold mr-2 text-xl"></i> 
-                                <span class="text-xl">${lawyer.rating}</span> 
-                                <span class="text-gray-500 font-normal text-sm ml-2">(${lawyer.reviews} reviews)</span>
-                            </div>
-
-                            <div class="space-y-3 mb-8">
-                                <div class="flex items-start">
-                                    <i class="fa-solid fa-location-dot text-gray-400 mt-1 w-6"></i>
-                                    <span class="text-gray-600 text-sm">${lawyer.location}, Patna</span>
-                                </div>
-                                <div class="flex items-start">
-                                    <i class="fa-solid fa-building-columns text-gray-400 mt-1 w-6"></i>
-                                    <span class="text-gray-600 text-sm">${lawyer.courts}</span>
-                                </div>
-                                <div class="flex items-start">
-                                    <i class="fa-solid fa-clock text-gray-400 mt-1 w-6"></i>
-                                    <span class="text-gray-600 text-sm">Mon - Sat (10:00 AM - 6:00 PM)</span>
-                                </div>
-                            </div>
-
-                            <a href="#contact" onclick="showHome(); setTimeout(()=>document.getElementById('contact').scrollIntoView(), 100);" class="block text-center w-full bg-brand-blue hover:bg-brand-lightBlue text-white font-bold py-3 rounded shadow transition duration-300 mb-3">
-                                Book Consultation
-                            </a>
-                            <a href="tel:+916202579262" class="block text-center w-full border-2 border-brand-blue text-brand-blue hover:bg-brand-bg font-bold py-3 rounded transition duration-300">
-                                <i class="fa-solid fa-phone mr-2"></i> Call Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-2 space-y-8">
-                    <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
-                        <h3 class="font-serif text-2xl font-bold text-brand-blue mb-4 border-b pb-2">About Advocate</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">${lawyer.bio}</p>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-brand-bg p-4 rounded">
-                                <div class="text-sm text-gray-500 mb-1">Experience</div>
-                                <div class="font-bold text-brand-blue text-lg">${lawyer.experience}+ Years</div>
-                            </div>
-                            <div class="bg-brand-bg p-4 rounded">
-                                <div class="text-sm text-gray-500 mb-1">Cases Handled</div>
-                                <div class="font-bold text-brand-blue text-lg">${lawyer.casesSolved}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
-                        <h3 class="font-serif text-2xl font-bold text-brand-blue mb-4 border-b pb-2">Qualifications & Credentials</h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-graduation-cap text-brand-gold mt-1 mr-3"></i>
-                                <span>${lawyer.qualifications}</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-id-card text-brand-gold mt-1 mr-3"></i>
-                                <span>Registered with Bihar State Bar Council</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-3"></i>
-                                <span>Member of Patna High Court Bar Association</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
-                        <div class="flex justify-between items-center mb-6 border-b pb-2">
-                            <h3 class="font-serif text-2xl font-bold text-brand-blue">Client Reviews</h3>
-                            <button class="text-brand-gold font-semibold text-sm hover:underline">Write a Review</button>
-                        </div>
-                        
-                        <div class="space-y-6">
-                            <div class="border-b border-gray-50 pb-6">
-                                <div class="flex justify-between items-start mb-2">
-                                    <div class="font-bold text-brand-blue">Anonymous Client</div>
-                                    <div class="text-brand-gold text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                                </div>
-                                <div class="text-xs text-gray-400 mb-2">Consulted for ${lawyer.specialization}</div>
-                                <p class="text-gray-600 text-sm">"Very knowledgeable and gave me the right direction for my case. Communication was clear and professional. Highly recommended."</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between items-start mb-2">
-                                    <div class="font-bold text-brand-blue">S. Kumar</div>
-                                    <div class="text-brand-gold text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-                                </div>
-                                <div class="text-xs text-gray-400 mb-2">Consulted for ${lawyer.specialization}</div>
-                                <p class="text-gray-600 text-sm">"Great experience. The advocate listened patiently and explained all legal options available to me without rushing."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('home-view').classList.add('hidden');
-            document.getElementById('profile-view').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderLawyers(lawyers);
-        });
+        const lawyers=[{id:1,name:'Mr. Sachin Kumar',experience:6,specialization:'Founder & Advocate, High Court',role:'advocate',rating:5.0,reviews:215,location:'Rajeev Nagar',image:'https://i.ibb.co/9HM8m9NB/Whats-App-Image-2026-04-04-at-2-23-26-PM.jpg',bio:'Mr. Sachin Kumar is the founding force behind Anjaneya Pramana Legal Associates. He pursued his B.A. LL.B & Diploma in Cyber Law from Pune University, and has extensive experience in litigation and advisory across diverse areas of law. Known for his strategic thinking and client-focused approach, he has successfully represented clients before various judicial and quasi-judicial forums. He has an impeccable record of winning cases before the Hon’ble High Court of Patna, Hon’ble Debt Recovery Tribunal, and other appropriate forums since the beginning of 2020.',qualifications:'B.A. LL.B & Diploma in Cyber Law (Pune University)',courts:'Patna High Court, DRT, NCLT',casesSolved:'500+'},{id:2,name:'Kumari Samridhi Pandey',experience:3,specialization:'Advocate',role:'advocate',rating:4.8,reviews:42,location:'Rajeev Nagar',image:'https://i.ibb.co/4Rg74TZH/Whats-App-Image-2026-04-04-at-2-25-03-PM.jpg',bio:'Kumari Samridhi Pandey is a dedicated law student currently pursuing her B.A. LL.B. from Maharishi Markandeshwar (Deemed to be University), Mullana, with a strong focus on practical legal exposure and research. She has gained hands-on experience through internships at the Patna High Court, Ambala District Court, and The Amikus Qriae, where she worked on drafting pleadings, conducting legal research, preparing case summaries, and observing court proceedings, while also assisting in client interactions. Her work has been appreciated for diligence, punctuality, and inquisitiveness. Academically driven, she has authored a research paper on the Waqf (Amendment) Bill, 2025, a case commentary on Anuradha Bhasin v. Union of India, and a peer-reviewed book chapter on blockchain technology, reflecting her interest in contemporary legal developments. In addition to her academic and professional pursuits, she has completed a human rights certification course, holds a patent registration for an AI-based employee efficiency device, and has been awarded the NCC ‘C’ Certificate under the Ministry of Defence, demonstrating discipline and commitment. She has also actively participated in student welfare initiatives, youth parliament, and national-level cultural and academic events, showcasing her leadership and organizational abilities. Proficient in English and Hindi, she presents a well-rounded profile with strong legal, analytical, and communication skills, along with a committed approach towards building a career in the legal profession.',qualifications:'B.A. LL.B',courts:'District Courts, Patna High Court',casesSolved:'100+'},{id:3,name:'Parkhi Pankaj',experience:2,specialization:'Advocate',role:'advocate',rating:4.7,reviews:35,location:'Rajeev Nagar',image:'https://i.ibb.co/dsmL9n3j/Whats-App-Image-2026-04-04-at-2-23-08-PM.jpg',bio:'Advocate Parkhi Pankaj is an Associate at the firm, known for her diligent approach and commitment to delivering effective legal solutions. She is actively involved in handling matters relating to civil, criminal, and family law, assisting in litigation, legal research, drafting, and client representation. She has authored a research paper titled "National Security Threat: Cybercrime", showcasing her interest in contemporary legal developments. She has also gained practical exposure at the ADR Centre, where she developed an understanding of mediation, dispute resolution mechanisms, and court procedures. With a detail-oriented mindset and a client-focused approach, she aims to provide practical and result-driven legal assistance while upholding the highest standards of the profession.',qualifications:'B.A. LL.B',courts:'District Courts, Patna High Court',casesSolved:'80+'},{id:4,name:'Aditya Kumar Patel',experience:5,specialization:'Firm Manager',role:'manager',rating:4.9,reviews:50,location:'Rajeev Nagar',image:'https://i.ibb.co/Kc42CV6f/Whats-App-Image-2026-04-04-at-2-39-07-PM.jpg',bio:"I am Aditya kr. Patel, I've completed my Masters in Commerce from LNMU. I'm a quick learner and enjoy working in a team. A motivated and hardworking student with a keen interest in technology and problem-solving. I enjoy learning new skills and continuously improving myself. I am looking for opportunities to grow and build a successful career. My goal is to start my career in a reputed firm or organization where I can enhance my skills and contribute to the firm's growth.",qualifications:'M.COM',courts:'Management & Administration',casesSolved:'Firm Admin'},{id:5,name:'Mahendar',experience:10,specialization:'Munsi (Clerk)',role:'clerk',rating:4.9,reviews:18,location:'Patna',image:'https://i.ibb.co/WpK3nq1S/Whats-App-Image-2026-04-04-at-1-38-32-PM.jpg',bio:'Mahendar is an experienced Munsi at the firm, providing invaluable clerical support. He manages court filings, registry procedures, and day-to-day coordination at the Patna courts.',qualifications:'Legal Clerk',courts:'Patna Courts Registry',casesSolved:'Clerical'},{id:6,name:'Suraj Kumar',experience:7,specialization:'Munsi (Clerk)',role:'clerk',rating:4.8,reviews:22,location:'Patna',image:'https://i.ibb.co/WpK3nq1S/Whats-App-Image-2026-04-04-at-1-38-32-PM.jpg',bio:'Suraj Kumar serves as a reliable Munsi for Anjaneya Pramana. He ensures all document preparations, court listings, and filings are completed accurately and on time.',qualifications:'Legal Clerk',courts:'Patna Courts Registry',casesSolved:'Clerical'}];document.getElementById('mobile-menu-btn').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('hidden')});document.querySelectorAll('#mobile-menu a').forEach(link=>{link.addEventListener('click',()=>{document.getElementById('mobile-menu').classList.add('hidden')})});function submitForm(e){e.preventDefault();const btn=e.target.querySelector('button[type="submit"]');const originalText=btn.innerHTML;btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Redirecting...';btn.disabled=!0;const name=document.getElementById('contact-name').value;const phone=document.getElementById('contact-phone').value;const caseType=document.getElementById('contact-case').value;const desc=document.getElementById('contact-desc').value;const message=`*New Consultation Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Case Type:* ${caseType}\n*Description:* ${desc}`;window.open(`https://wa.me/917066160162?text=${encodeURIComponent(message)}`,'_blank');setTimeout(()=>{document.getElementById('form-success').classList.remove('hidden');e.target.reset();btn.innerHTML=originalText;btn.disabled=!1;setTimeout(()=>{document.getElementById('form-success').classList.add('hidden')},5000)},1000)}function renderLawyers(lawyerArray,gridId='lawyers-grid',noResultsId='no-results'){const grid=document.getElementById(gridId);const noResults=document.getElementById(noResultsId);grid.innerHTML='';if(lawyerArray.length===0){grid.classList.add('hidden');noResults.classList.remove('hidden');return}grid.classList.remove('hidden');noResults.classList.add('hidden');lawyerArray.forEach(lawyer=>{const card=document.createElement('div');card.className='bg-brand-card rounded-lg border border-brand-gold/20 overflow-hidden card-hover shadow-lg shadow-black flex flex-col';card.innerHTML=`<div class="h-48 overflow-hidden relative border-b border-brand-gold/20"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-full object-cover object-top opacity-80 hover:opacity-100 transition duration-300"><div class="absolute top-4 right-4 bg-brand-dark/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-gold flex items-center border border-brand-gold/30"><i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}</div></div><div class="p-6 flex-grow flex flex-col"><div class="flex justify-between items-start mb-2"><h4 class="font-serif font-bold text-xl text-brand-text">${lawyer.name}</h4><span class="bg-brand-brown text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-gold/20 flex items-center"><i class="fa-solid fa-shield-check mr-1 text-brand-gold"></i> AP Team</span></div><p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p><div class="space-y-2 mb-6 flex-grow"><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-briefcase w-5 text-brand-gold/70"></i> ${lawyer.experience}+ Years Experience</div><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-location-dot w-5 text-brand-gold/70"></i> ${lawyer.location}</div></div><button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-brown border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-bold py-2 rounded transition duration-300">View Profile</button></div>`;grid.appendChild(card)})}function filterLawyers(){const area=document.getElementById('filter-area').value.toLowerCase();const location=document.getElementById('filter-location').value;const role=document.getElementById('filter-experience').value;const filtered=lawyers.filter(lawyer=>{const matchArea=area==='all'||lawyer.specialization.toLowerCase().includes(area)||lawyer.bio.toLowerCase().includes(area);const matchLocation=location==='all'||lawyer.location===location;const matchRole=role==='all'||lawyer.role===role;return matchArea&&matchLocation&&matchRole});document.getElementById('search-results-area').classList.remove('hidden');renderLawyers(filtered,'search-results-grid','search-no-results')}function closeSearchResults(){document.getElementById('search-results-area').classList.add('hidden');document.getElementById('filter-area').value='all';document.getElementById('filter-location').value='all';document.getElementById('filter-experience').value='all'}function resetFilters(){document.getElementById('filter-area').value='all';document.getElementById('filter-location').value='all';document.getElementById('filter-experience').value='all';renderLawyers(lawyers);closeSearchResults()}function showHome(){document.getElementById('profile-view').classList.add('hidden');document.getElementById('home-view').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})}function showProfile(id){const lawyer=lawyers.find(l=>l.id===id);if(!lawyer)return;const profileContent=document.getElementById('profile-content');profileContent.innerHTML=`<div class="lg:col-span-1"><div class="bg-brand-card rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] overflow-hidden border border-brand-gold/30 sticky top-24"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-64 object-cover object-top opacity-90 border-b border-brand-gold/20"><div class="p-6"><h2 class="font-serif text-2xl font-bold text-gradient mb-1">${lawyer.name}</h2><p class="text-brand-gold font-semibold mb-4">${lawyer.specialization}</p><div class="flex items-center text-brand-text font-bold mb-6 bg-brand-brown border border-brand-gold/10 p-3 rounded"><i class="fa-solid fa-star text-brand-gold mr-2 text-xl"></i> <span class="text-xl">${lawyer.rating}</span> <span class="text-brand-muted font-normal text-sm ml-2">(${lawyer.reviews} reviews)</span></div><div class="space-y-3 mb-8"><div class="flex items-start"><i class="fa-solid fa-location-dot text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.location}</span></div><div class="flex items-start"><i class="fa-solid fa-building-columns text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.courts}</span></div><div class="flex items-start"><i class="fa-solid fa-clock text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">Mon - Sat (10:00 AM - 6:00 PM)</span></div></div><a href="#contact" onclick="showHome(); setTimeout(()=>document.getElementById('contact').scrollIntoView(), 100);" class="block text-center w-full bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold py-3 rounded shadow transition duration-300 mb-3">Get In Touch</a><a href="tel:+917066160162" class="block text-center w-full border-2 border-brand-gold text-brand-gold hover:bg-brand-brown font-bold py-3 rounded transition duration-300"><i class="fa-solid fa-phone mr-2"></i> Call Now</a></div></div></div><div class="lg:col-span-2 space-y-8"><div class="bg-brand-card p-8 rounded-xl shadow-lg border border-brand-gold/20"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-gold/20 pb-2">About Team Member</h3><p class="text-brand-muted leading-relaxed mb-6">${lawyer.bio}</p><div class="grid grid-cols-2 gap-4"><div class="bg-brand-brown border border-brand-gold/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Experience</div><div class="font-bold text-brand-text text-lg">${lawyer.experience}+ Years</div></div><div class="bg-brand-brown border border-brand-gold/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Status</div><div class="font-bold text-brand-text text-lg">${lawyer.casesSolved}</div></div></div></div><div class="bg-brand-card p-8 rounded-xl shadow-lg border border-brand-gold/20"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-gold/20 pb-2">Qualifications & Credentials</h3><ul class="space-y-3 text-brand-muted"><li class="flex items-start"><i class="fa-solid fa-graduation-cap text-brand-gold mt-1 mr-3"></i><span>${lawyer.qualifications}</span></li><li class="flex items-start"><i class="fa-solid fa-id-card text-brand-gold mt-1 mr-3"></i><span>Active Role: ${lawyer.specialization}</span></li><li class="flex items-start"><i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-3"></i><span>Primary Area: ${lawyer.courts}</span></li></ul></div></div>`;document.getElementById('home-view').classList.add('hidden');document.getElementById('profile-view').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})}document.addEventListener('DOMContentLoaded',()=>{renderLawyers(lawyers)});
     </script>
 </body>
 </html>
