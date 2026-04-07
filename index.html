@@ -114,18 +114,6 @@
         ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #B5952F; }
 
-        /* Scroll Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-            will-change: opacity, transform; /* Hardware acceleration for smoother animations */
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Glassmorphism UI */
         .glass-panel {
             background: rgb(var(--brand-card) / 0.5);
@@ -898,20 +886,6 @@
             });
         }
 
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        function attachRevealObserver() {
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
-
         function renderLawyers(lawyerArray,gridId='lawyers-grid',noResultsId='no-results'){
             const grid=document.getElementById(gridId);
             const noResults=document.getElementById(noResultsId);
@@ -926,12 +900,11 @@
             lawyerArray.forEach((lawyer, index)=>{
                 const delay = index * 0.1;
                 const card=document.createElement('div');
-                card.className=`glass-panel rounded-lg overflow-hidden card-hover flex flex-col reveal`;
+                card.className=`glass-panel rounded-lg overflow-hidden card-hover flex flex-col`;
                 card.style.transitionDelay = `${delay}s`;
                 card.innerHTML=`<div class="h-48 overflow-hidden relative border-b border-brand-gold/20"><img src="${lawyer.image}" alt="${lawyer.name}" loading="lazy" class="w-full h-full object-cover object-top opacity-80 hover:opacity-100 transition duration-300"><div class="absolute top-4 right-4 bg-brand-dark/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-gold flex items-center border border-brand-gold/30"><i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}</div></div><div class="p-6 flex-grow flex flex-col"><div class="flex justify-between items-start mb-2"><h4 class="font-serif font-bold text-xl text-brand-text">${lawyer.name}</h4><span class="bg-brand-dark/50 text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-gold/20 flex items-center"><i class="fa-solid fa-shield-check mr-1 text-brand-gold"></i> AP Team</span></div><p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p><div class="space-y-2 mb-6 flex-grow"><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-briefcase w-5 text-brand-gold/70"></i> ${lawyer.experience}+ Years Experience</div><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-location-dot w-5 text-brand-gold/70"></i> ${lawyer.location}</div></div><button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-dark/60 border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-white md:hover:text-brand-dark font-bold py-2 rounded transition duration-300">View Profile</button></div>`;
                 grid.appendChild(card)
             });
-            attachRevealObserver();
         }
 
         function filterLawyers(){
@@ -1041,8 +1014,6 @@
             
             setTimeout(typeEffect, 1500); 
 
-            attachRevealObserver();
-            
             const numbersSection = document.getElementById('numbers-section');
             if (numbersSection) countObserver.observe(numbersSection);
         });
