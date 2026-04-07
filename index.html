@@ -62,13 +62,19 @@
             background-color: rgb(var(--brand-dark)); 
             color: rgb(var(--brand-text)); 
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            background-attachment: fixed;
             /* Anti-Select Protections */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
             transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Apply fixed background only on larger screens to prevent mobile scroll lag */
+        @media (min-width: 768px) {
+            body {
+                background-attachment: fixed;
+            }
         }
         
         /* Allow selection inside forms so users can still type */
@@ -113,6 +119,7 @@
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            will-change: opacity, transform; /* Hardware acceleration for smoother animations */
         }
         .reveal.active {
             opacity: 1;
@@ -122,10 +129,12 @@
         /* Glassmorphism UI */
         .glass-panel {
             background: rgb(var(--brand-card) / 0.5);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(8px); /* Reduced blur for better mobile rendering performance */
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(212, 175, 55, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05); /* Lighter shadow */
+            transform: translateZ(0); /* Force GPU rendering */
+            will-change: transform;
         }
         
         /* Typewriter Cursor */
@@ -215,7 +224,7 @@
     <main id="app-content">
         <div id="home-view">
             <!-- Hero Section with Background Image and Transparent Filter -->
-            <section class="py-24 md:py-32 relative border-b border-brand-gold/10 bg-cover bg-center bg-fixed" style="background-image: url('https://i.ibb.co/NPcqWp8/inside-a-lawyer-s-office-1920w.webp');">
+            <section class="py-24 md:py-32 relative border-b border-brand-gold/10 bg-cover bg-center md:bg-fixed" style="background-image: url('https://i.ibb.co/NPcqWp8/inside-a-lawyer-s-office-1920w.webp');">
                 <div class="absolute inset-0 bg-brand-dark/85 section-overlay backdrop-blur-[2px]"></div>
                 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -296,7 +305,7 @@
             </section>
 
             <!-- About Section with Background Image -->
-            <section id="about" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1505664177922-9818f8f4a014?auto=format&fit=crop&w=1920&q=80');">
+            <section id="about" class="py-20 relative bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1505664177922-9818f8f4a014?auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-brand-dark/90 section-overlay backdrop-blur-sm"></div>
                 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -356,7 +365,7 @@
             </section>
 
             <!-- Numbers Section with Background Image -->
-            <section id="numbers-section" class="py-16 border-y border-brand-gold/20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=1920&q=80');">
+            <section id="numbers-section" class="py-16 border-y border-brand-gold/20 relative bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-brand-brown/85 section-overlay backdrop-blur-md"></div>
                 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -386,7 +395,7 @@
             </section>
 
             <!-- UPDATED Practice Areas Section (Image Box Layout) -->
-            <section id="practice-areas" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=1920&q=80');">
+            <section id="practice-areas" class="py-20 relative bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-brand-dark/90 section-overlay backdrop-blur-[4px]"></div>
                 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -535,7 +544,7 @@
             </section>
             
             <!-- Track Record Section with Background Image -->
-            <section class="py-20 border-t border-brand-gold/10 relative overflow-hidden bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1920&q=80');">
+            <section class="py-20 border-t border-brand-gold/10 relative overflow-hidden bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-brand-brown/85 section-overlay backdrop-blur-[6px]"></div>
                 
                 <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full border border-brand-gold/20 opacity-50 z-10"></div>
@@ -584,7 +593,7 @@
             </section>
 
             <!-- Lawyers/Team Section with Background Image -->
-            <section id="lawyers" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');">
+            <section id="lawyers" class="py-20 relative bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-brand-dark/90 section-overlay backdrop-blur-sm"></div>
                 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -607,7 +616,7 @@
             </section>
 
             <!-- Testimonials Section with Background Image -->
-            <section class="py-20 border-t border-brand-gold/10 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=1920&q=80');">
+            <section class="py-20 border-t border-brand-gold/10 relative bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-brand-brown/85 section-overlay backdrop-blur-[6px]"></div>
                 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -670,7 +679,7 @@
         </div>
 
         <!-- Contact Section with Background Image -->
-        <section id="contact" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80');">
+        <section id="contact" class="py-20 relative bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80');">
             <div class="absolute inset-0 bg-brand-dark/85 section-overlay backdrop-blur-[8px]"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -919,7 +928,7 @@
                 const card=document.createElement('div');
                 card.className=`glass-panel rounded-lg overflow-hidden card-hover flex flex-col reveal`;
                 card.style.transitionDelay = `${delay}s`;
-                card.innerHTML=`<div class="h-48 overflow-hidden relative border-b border-brand-gold/20"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-full object-cover object-top opacity-80 hover:opacity-100 transition duration-300"><div class="absolute top-4 right-4 bg-brand-dark/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-gold flex items-center border border-brand-gold/30"><i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}</div></div><div class="p-6 flex-grow flex flex-col"><div class="flex justify-between items-start mb-2"><h4 class="font-serif font-bold text-xl text-brand-text">${lawyer.name}</h4><span class="bg-brand-dark/50 text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-gold/20 flex items-center"><i class="fa-solid fa-shield-check mr-1 text-brand-gold"></i> AP Team</span></div><p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p><div class="space-y-2 mb-6 flex-grow"><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-briefcase w-5 text-brand-gold/70"></i> ${lawyer.experience}+ Years Experience</div><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-location-dot w-5 text-brand-gold/70"></i> ${lawyer.location}</div></div><button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-dark/60 border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-white md:hover:text-brand-dark font-bold py-2 rounded transition duration-300">View Profile</button></div>`;
+                card.innerHTML=`<div class="h-48 overflow-hidden relative border-b border-brand-gold/20"><img src="${lawyer.image}" alt="${lawyer.name}" loading="lazy" class="w-full h-full object-cover object-top opacity-80 hover:opacity-100 transition duration-300"><div class="absolute top-4 right-4 bg-brand-dark/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-gold flex items-center border border-brand-gold/30"><i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}</div></div><div class="p-6 flex-grow flex flex-col"><div class="flex justify-between items-start mb-2"><h4 class="font-serif font-bold text-xl text-brand-text">${lawyer.name}</h4><span class="bg-brand-dark/50 text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-gold/20 flex items-center"><i class="fa-solid fa-shield-check mr-1 text-brand-gold"></i> AP Team</span></div><p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p><div class="space-y-2 mb-6 flex-grow"><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-briefcase w-5 text-brand-gold/70"></i> ${lawyer.experience}+ Years Experience</div><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-location-dot w-5 text-brand-gold/70"></i> ${lawyer.location}</div></div><button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-dark/60 border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-white md:hover:text-brand-dark font-bold py-2 rounded transition duration-300">View Profile</button></div>`;
                 grid.appendChild(card)
             });
             attachRevealObserver();
