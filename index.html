@@ -18,13 +18,13 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#261C17', 
-                            brown: '#3A2A22',
-                            card: '#2E221C',
+                            dark: 'rgb(var(--brand-dark) / <alpha-value>)', 
+                            brown: 'rgb(var(--brand-brown) / <alpha-value>)',
+                            card: 'rgb(var(--brand-card) / <alpha-value>)',
                             gold: '#D4AF37',
                             goldHover: '#B5952F',
-                            text: '#FDF6E3',
-                            muted: '#C4B0A1'
+                            text: 'rgb(var(--brand-text) / <alpha-value>)',
+                            muted: 'rgb(var(--brand-muted) / <alpha-value>)'
                         }
                     },
                     fontFamily: {
@@ -36,10 +36,31 @@
         }
     </script>
     <style>
+        /* Define Color Variables for Theme Toggling */
+        :root {
+            /* Night Mode (Default) */
+            --brand-dark: 38 28 23;      /* #261C17 */
+            --brand-brown: 58 42 34;     /* #3A2A22 */
+            --brand-card: 46 34 28;      /* #2E221C */
+            --brand-text: 253 246 227;   /* #FDF6E3 */
+            --brand-muted: 196 176 161;  /* #C4B0A1 */
+            --brand-footer: 26 17 11;    /* #1A110B */
+        }
+
+        .light-mode {
+            /* Day Mode (Soft Light/Cream) */
+            --brand-dark: 250 246 238;   /* Soft warm white */
+            --brand-brown: 240 234 220;  /* Light beige */
+            --brand-card: 245 239 228;   /* Card bg cream */
+            --brand-text: 38 28 23;      /* Dark text */
+            --brand-muted: 102 87 76;    /* Darker muted text */
+            --brand-footer: 235 228 213; /* Footer matches light aesthetic */
+        }
+
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #261C17; 
-            color: #FDF6E3; 
+            background-color: rgb(var(--brand-dark)); 
+            color: rgb(var(--brand-text)); 
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             background-attachment: fixed;
             /* Anti-Select Protections */
@@ -47,6 +68,7 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
         
         /* Allow selection inside forms so users can still type */
@@ -58,11 +80,6 @@
         }
 
         h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Playfair Display', serif; }
-        
-        .hero-bg {
-            background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, rgba(38, 28, 23, 1) 60%), 
-                        linear-gradient(135deg, #261C17 0%, #3A2A22 100%);
-        }
 
         .text-gradient {
             background: linear-gradient(135deg, #D33C16 0%, #ED8F1C 50%, #F4D03F 100%);
@@ -87,11 +104,11 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #261C17; }
+        ::-webkit-scrollbar-track { background: rgb(var(--brand-dark)); }
         ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #B5952F; }
 
-        /* --- NEW: Scroll Reveal Animations --- */
+        /* Scroll Reveal Animations */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -102,16 +119,16 @@
             transform: translateY(0);
         }
 
-        /* --- NEW: Glassmorphism UI Update --- */
+        /* Glassmorphism UI */
         .glass-panel {
-            background: rgba(46, 34, 28, 0.4);
+            background: rgb(var(--brand-card) / 0.5);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(212, 175, 55, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
         }
         
-        /* --- NEW: Typewriter Cursor --- */
+        /* Typewriter Cursor */
         .typing-cursor::after {
             content: '|';
             animation: blink 1s step-end infinite;
@@ -121,7 +138,7 @@
             50% { opacity: 0; }
         }
 
-        /* --- NEW: FAB Pulse Animation --- */
+        /* FAB Pulse Animation */
         @keyframes pulse-glow {
             0% { box-shadow: 0 0 0 0 rgba(212,175,55, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(212,175,55, 0); }
@@ -129,6 +146,11 @@
         }
         .fab-pulse {
             animation: pulse-glow 2s infinite;
+        }
+
+        /* Background Section Overlay Transitions */
+        .section-overlay {
+            transition: background-color 0.5s ease;
         }
     </style>
     <script>
@@ -148,7 +170,7 @@
 </head>
 <body class="antialiased relative selection:bg-brand-gold selection:text-brand-dark">
 
-    <nav class="bg-brand-dark text-brand-text border-b border-brand-gold/20 sticky top-0 z-50 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+    <nav class="bg-brand-dark text-brand-text border-b border-brand-gold/20 sticky top-0 z-50 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center cursor-pointer" onclick="showHome()">
@@ -161,11 +183,21 @@
                     <a href="#practice-areas" class="text-brand-text hover:text-brand-gold transition" onclick="showHome()">Practice Areas</a>
                     <a href="#lawyers" class="text-brand-text hover:text-brand-gold transition" onclick="showHome()">Our Team</a>
                     <a href="#contact" class="text-brand-text hover:text-brand-gold transition" onclick="showHome()">Contact</a>
+                    
+                    <!-- Theme Toggle Button (Desktop) -->
+                    <button id="theme-toggle" onclick="toggleTheme()" class="text-brand-text hover:text-brand-gold transition text-xl focus:outline-none" title="Toggle Day/Night Mode">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+
                     <a href="tel:+917066160162" class="flex items-center text-brand-gold font-semibold border border-brand-gold/30 px-4 py-2 rounded hover:bg-brand-gold hover:text-brand-dark transition">
                         <i class="fa-solid fa-phone mr-2"></i> +91 70661 60162
                     </a>
                 </div>
                 <div class="md:hidden flex items-center">
+                    <!-- Theme Toggle Button (Mobile) -->
+                    <button id="theme-toggle-mobile" onclick="toggleTheme()" class="text-brand-text hover:text-brand-gold mr-4 text-xl focus:outline-none" title="Toggle Day/Night Mode">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
                     <button id="mobile-menu-btn" class="text-brand-gold focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
@@ -182,8 +214,11 @@
 
     <main id="app-content">
         <div id="home-view">
-            <section class="hero-bg py-24 md:py-32 relative border-b border-brand-gold/10">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Hero Section with Background Image and Transparent Filter -->
+            <section class="py-24 md:py-32 relative border-b border-brand-gold/10 bg-cover bg-center bg-fixed" style="background-image: url('https://i.ibb.co/NPcqWp8/inside-a-lawyer-s-office-1920w.webp');">
+                <div class="absolute inset-0 bg-brand-dark/85 section-overlay backdrop-blur-[2px]"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 leading-tight text-gradient reveal">
                         Anjaneya Pramana <br>Legal Associates
                     </h1>
@@ -194,7 +229,7 @@
                         Dynamic, ethical, and result-oriented legal services. Expert legal advocacy based in Patna, Bihar.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4 reveal" style="transition-delay: 0.3s;">
-                        <a href="#lawyers" class="bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold py-4 px-8 rounded shadow-lg shadow-brand-gold/20 transition duration-300 text-lg">
+                        <a href="#lawyers" class="bg-brand-gold hover:bg-brand-goldHover text-white md:text-brand-dark font-bold py-4 px-8 rounded shadow-lg shadow-brand-gold/20 transition duration-300 text-lg">
                             Meet Our Team
                         </a>
                         <a href="#contact" class="glass-panel text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-bold py-4 px-8 rounded shadow-lg transition duration-300 text-lg">
@@ -204,12 +239,13 @@
                 </div>
             </section>
 
-            <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-10 z-10 reveal">
-                <div class="glass-panel rounded-xl p-6">
+            <!-- Search Panel -->
+            <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-10 z-20 reveal">
+                <div class="glass-panel rounded-xl p-6 bg-brand-card">
                     <form onsubmit="event.preventDefault(); filterLawyers();" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div class="md:col-span-1">
                             <label class="block text-sm font-semibold text-brand-gold mb-1">Practice Area</label>
-                            <select id="filter-area" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown/80 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                            <select id="filter-area" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown/80 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none transition-colors">
                                 <option value="all">All Areas</option>
                                 <option value="Banking">Banking & Finance Law</option>
                                 <option value="Civil">Civil & Commercial</option>
@@ -220,7 +256,7 @@
                         </div>
                         <div class="md:col-span-1">
                             <label class="block text-sm font-semibold text-brand-gold mb-1">Location</label>
-                            <select id="filter-location" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown/80 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                            <select id="filter-location" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown/80 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none transition-colors">
                                 <option value="all">All Locations</option>
                                 <option value="Rajeev Nagar">Rajeev Nagar</option>
                                 <option value="Patna">Patna</option>
@@ -228,7 +264,7 @@
                         </div>
                         <div class="md:col-span-1">
                             <label class="block text-sm font-semibold text-brand-gold mb-1">Role</label>
-                            <select id="filter-experience" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown/80 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none">
+                            <select id="filter-experience" class="w-full border border-brand-gold/30 rounded p-3 bg-brand-brown/80 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none transition-colors">
                                 <option value="all">All Roles</option>
                                 <option value="advocate">Advocates</option>
                                 <option value="manager">Management</option>
@@ -236,7 +272,7 @@
                             </select>
                         </div>
                         <div class="md:col-span-1 flex items-end">
-                            <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold py-3 px-4 rounded transition duration-300 flex justify-center items-center">
+                            <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldHover text-white md:text-brand-dark font-bold py-3 px-4 rounded transition duration-300 flex justify-center items-center">
                                 <i class="fa-solid fa-magnifying-glass mr-2"></i> Search
                             </button>
                         </div>
@@ -259,8 +295,11 @@
                 </div>
             </section>
 
-            <section id="about" class="py-20 bg-brand-dark/50">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- About Section with Background Image -->
+            <section id="about" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1505664177922-9818f8f4a014?auto=format&fit=crop&w=1920&q=80');">
+                <div class="absolute inset-0 bg-brand-dark/90 section-overlay backdrop-blur-sm"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="text-center mb-16 reveal">
                         <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our Profile</h2>
                         <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Welcome To Anjaneya Pramana</h3>
@@ -270,8 +309,8 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
                         <div class="order-2 lg:order-1 relative group reveal" style="transition-delay: 0.1s;">
                             <div class="absolute -inset-1 bg-gradient-to-r from-[#D33C16] to-[#F4D03F] rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                            <div class="relative rounded-lg overflow-hidden border border-brand-gold/40 shadow-2xl glass-panel">
-                                <img src="https://i.ibb.co/LDrD2K3j/Whats-App-Image-2026-04-04-at-1-38-06-PM.jpg" alt="Anjaneya Pramana Poster" class="w-full h-auto object-cover transform hover:scale-105 transition duration-500 opacity-90">
+                            <div class="relative rounded-lg overflow-hidden border border-brand-gold/40 shadow-2xl glass-panel p-2">
+                                <img src="https://i.ibb.co/LDrD2K3j/Whats-App-Image-2026-04-04-at-1-38-06-PM.jpg" alt="Anjaneya Pramana Poster" class="w-full h-auto object-cover rounded transform hover:scale-105 transition duration-500 opacity-90">
                             </div>
                         </div>
 
@@ -284,19 +323,19 @@
                             <p>We believe that every legal issue requires a tailored strategy. Our approach is:</p>
                             <ul class="space-y-3 mt-4">
                                 <li class="flex items-start">
-                                    <div class="bg-brand-brown p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
+                                    <div class="bg-brand-brown/80 p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
                                     <span><strong class="text-brand-text">Client-Centric</strong> – Understanding client needs deeply.</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <div class="bg-brand-brown p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
+                                    <div class="bg-brand-brown/80 p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
                                     <span><strong class="text-brand-text">Research-Driven</strong> – Strong legal research and case analysis.</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <div class="bg-brand-brown p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
+                                    <div class="bg-brand-brown/80 p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
                                     <span><strong class="text-brand-text">Result-Oriented</strong> – Focus on practical and timely outcomes.</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <div class="bg-brand-brown p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
+                                    <div class="bg-brand-brown/80 p-1 rounded mr-3 border border-brand-gold/30"><i class="fa-solid fa-check text-brand-gold text-sm"></i></div>
                                     <span><strong class="text-brand-text">Ethical Practice</strong> – Upholding the highest standards of integrity.</span>
                                 </li>
                             </ul>
@@ -308,16 +347,19 @@
                             <h3 class="font-serif text-2xl md:text-3xl text-gradient font-bold">Our Ambition</h3>
                         </div>
                         <div class="absolute -inset-1 bg-gradient-to-r from-[#D33C16] to-[#F4D03F] rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative rounded-lg overflow-hidden border border-brand-gold/40 shadow-[0_10px_40px_rgba(0,0,0,0.8)] glass-panel">
-                            <img src="https://i.ibb.co/gbnL6xCn/Whats-App-Image-2026-04-04-at-1-39-38-PM.jpg" alt="Our Firm's Ambition" class="w-full h-auto object-cover transform hover:scale-[1.02] transition duration-700 opacity-90">
+                        <div class="relative rounded-lg overflow-hidden border border-brand-gold/40 shadow-[0_10px_40px_rgba(0,0,0,0.2)] glass-panel p-2">
+                            <img src="https://i.ibb.co/gbnL6xCn/Whats-App-Image-2026-04-04-at-1-39-38-PM.jpg" alt="Our Firm's Ambition" class="w-full h-auto object-cover rounded transform hover:scale-[1.02] transition duration-700 opacity-90">
                         </div>
                     </div>
 
                 </div>
             </section>
 
-            <section id="numbers-section" class="py-16 border-y border-brand-gold/20 relative" style="background: rgba(58, 42, 34, 0.7); backdrop-filter: blur(8px);">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Numbers Section with Background Image -->
+            <section id="numbers-section" class="py-16 border-y border-brand-gold/20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=1920&q=80');">
+                <div class="absolute inset-0 bg-brand-brown/85 section-overlay backdrop-blur-md"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="text-center mb-12 reveal">
                         <h3 class="font-serif text-3xl md:text-4xl font-bold text-gradient">Numbers Speak For Themselves</h3>
                     </div>
@@ -343,8 +385,11 @@
                 </div>
             </section>
 
-            <section id="practice-areas" class="py-20 bg-brand-dark/50">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Practice Areas Section with Background Image -->
+            <section id="practice-areas" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=1920&q=80');">
+                <div class="absolute inset-0 bg-brand-dark/90 section-overlay backdrop-blur-[4px]"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="text-center mb-16 reveal">
                         <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our Services</h2>
                         <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Core Practice Areas</h3>
@@ -353,7 +398,7 @@
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal">
-                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                             <div class="relative z-10">
                                 <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
                                     <i class="fa-solid fa-coins"></i>
@@ -364,7 +409,7 @@
                         </div>
                         
                         <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.1s;">
-                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                             <div class="relative z-10">
                                 <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
                                     <i class="fa-solid fa-scale-balanced"></i>
@@ -375,7 +420,7 @@
                         </div>
 
                         <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.2s;">
-                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                             <div class="relative z-10">
                                 <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
                                     <i class="fa-solid fa-gavel"></i>
@@ -386,7 +431,7 @@
                         </div>
 
                         <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.3s;">
-                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                             <div class="relative z-10">
                                 <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
                                     <i class="fa-solid fa-landmark"></i>
@@ -397,7 +442,7 @@
                         </div>
 
                         <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal">
-                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                             <div class="relative z-10">
                                 <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
                                     <i class="fa-solid fa-handshake"></i>
@@ -408,7 +453,7 @@
                         </div>
 
                         <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.1s;">
-                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                             <div class="relative z-10">
                                 <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
                                     <i class="fa-solid fa-money-bill-wave"></i>
@@ -419,7 +464,7 @@
                         </div>
 
                         <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.2s;">
-                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                             <div class="relative z-10">
                                 <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
                                     <i class="fa-solid fa-file-signature"></i>
@@ -430,7 +475,7 @@
                         </div>
 
                         <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.3s;">
-                            <div class="absolute inset-0 bg-brand-brown opacity-0 group-hover:opacity-40 transition duration-300"></div>
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                             <div class="relative z-10">
                                 <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
                                     <i class="fa-solid fa-briefcase"></i>
@@ -443,11 +488,14 @@
                 </div>
             </section>
             
-            <section class="py-20 border-t border-brand-gold/10 relative overflow-hidden" style="background: rgba(58, 42, 34, 0.7); backdrop-filter: blur(8px);">
-                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full border border-brand-gold/10 opacity-50"></div>
-                <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full border border-brand-gold/5 opacity-50"></div>
+            <!-- Track Record Section with Background Image -->
+            <section class="py-20 border-t border-brand-gold/10 relative overflow-hidden bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1920&q=80');">
+                <div class="absolute inset-0 bg-brand-brown/85 section-overlay backdrop-blur-[6px]"></div>
+                
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full border border-brand-gold/20 opacity-50 z-10"></div>
+                <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full border border-brand-gold/10 opacity-50 z-10"></div>
 
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                     <div class="text-center mb-12 reveal">
                         <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Our Track Record</h2>
                         <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Important Cases Handled</h3>
@@ -456,31 +504,31 @@
                     
                     <div class="glass-panel p-8 md:p-10 rounded-xl max-w-4xl mx-auto reveal" style="transition-delay: 0.2s;">
                         <ul class="space-y-5">
-                            <li class="flex items-start bg-brand-dark/50 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                            <li class="flex items-start bg-brand-dark/60 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
                                 <div class="text-brand-text"><strong class="text-brand-gold">S.A. 197 of 2024:</strong> Poonam Singh Vs The Punjab National Bank & Others</div>
                             </li>
-                            <li class="flex items-start bg-brand-dark/50 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                            <li class="flex items-start bg-brand-dark/60 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
                                 <div class="text-brand-text"><strong class="text-brand-gold">S.A. 21 of 2026:</strong> Dr. Surya Prakash & Others Vs The LIC Housing Finance Limited & Others</div>
                             </li>
-                            <li class="flex items-start bg-brand-dark/50 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                            <li class="flex items-start bg-brand-dark/60 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
                                 <div class="text-brand-text"><strong class="text-brand-gold">S.A. 275 of 2025:</strong> Dr. Surya Prakash Vs The LIC Housing Finance Limited & Others</div>
                             </li>
-                            <li class="flex items-start bg-brand-dark/50 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                            <li class="flex items-start bg-brand-dark/60 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
                                 <div class="text-brand-text"><strong class="text-brand-gold">S.A. 332 of 2024:</strong> Shashi Bhusan & Others Vs The ICICI Bank & Others</div>
                             </li>
-                            <li class="flex items-start bg-brand-dark/50 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                            <li class="flex items-start bg-brand-dark/60 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
                                 <div class="text-brand-text"><strong class="text-brand-gold">S.A. 331 of 2025:</strong> Anita Singh & Others Vs The ICICI Bank & Others</div>
                             </li>
-                            <li class="flex items-start bg-brand-dark/50 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                            <li class="flex items-start bg-brand-dark/60 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
                                 <div class="text-brand-text"><strong class="text-brand-gold">O.A. 225/2025:</strong> The ICICI Bank Vs Anita Singh</div>
                             </li>
-                            <li class="flex items-start bg-brand-dark/50 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
+                            <li class="flex items-start bg-brand-dark/60 p-4 rounded-lg shadow-sm border-l-4 border-brand-gold hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-4 text-xl"></i> 
                                 <div class="text-brand-text"><strong class="text-brand-gold">O.A. 503/2025:</strong> The ICICI Bank Vs Shashi Bhusan</div>
                             </li>
@@ -489,8 +537,11 @@
                 </div>
             </section>
 
-            <section id="lawyers" class="py-20 bg-brand-dark/50">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Lawyers/Team Section with Background Image -->
+            <section id="lawyers" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');">
+                <div class="absolute inset-0 bg-brand-dark/90 section-overlay backdrop-blur-sm"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-brand-gold/20 pb-4 reveal">
                         <div>
                             <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Anjaneya Pramana</h2>
@@ -501,16 +552,19 @@
                     <div id="lawyers-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     </div>
                     
-                    <div id="no-results" class="hidden text-center py-10">
-                        <i class="fa-solid fa-search text-brand-gold/30 text-5xl mb-4"></i>
+                    <div id="no-results" class="hidden text-center py-10 glass-panel rounded-lg">
+                        <i class="fa-solid fa-search text-brand-gold/50 text-5xl mb-4"></i>
                         <h3 class="text-xl font-serif text-brand-muted">No team members found matching your criteria.</h3>
                         <button onclick="resetFilters()" class="mt-4 text-brand-gold underline hover:text-brand-goldHover">Reset Filters</button>
                     </div>
                 </div>
             </section>
 
-            <section class="py-20 border-t border-brand-gold/10" style="background: rgba(58, 42, 34, 0.7); backdrop-filter: blur(8px);">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Testimonials Section with Background Image -->
+            <section class="py-20 border-t border-brand-gold/10 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=1920&q=80');">
+                <div class="absolute inset-0 bg-brand-brown/85 section-overlay backdrop-blur-[6px]"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="text-center mb-16 reveal">
                         <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Client Stories</h2>
                         <h3 class="font-serif text-3xl md:text-4xl text-gradient font-bold">Our Testimonials</h3>
@@ -546,18 +600,19 @@
                 </div>
             </section>
 
-            <section class="bg-gradient-to-r from-[#D33C16] to-[#F4D03F] py-16 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] reveal">
+            <section class="bg-gradient-to-r from-[#D33C16] to-[#F4D03F] py-16 shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] reveal">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 class="font-serif text-3xl md:text-4xl text-brand-dark font-bold mb-4">Expert Legal Advocacy You Can Trust</h2>
-                    <p class="text-brand-dark/80 font-medium mb-8 text-lg max-w-3xl mx-auto">Our team of highly skilled and experienced advocates specializes in a wide range of legal areas, ensuring that we can meet all your legal needs with precision and expertise.</p>
-                    <a href="#contact" class="inline-block bg-brand-dark text-brand-gold font-bold py-4 px-10 rounded shadow-2xl hover:bg-black transition duration-300 text-lg border border-brand-dark/20 hover:text-[#F4D03F]">
+                    <h2 class="font-serif text-3xl md:text-4xl text-black font-bold mb-4">Expert Legal Advocacy You Can Trust</h2>
+                    <p class="text-black/80 font-medium mb-8 text-lg max-w-3xl mx-auto">Our team of highly skilled and experienced advocates specializes in a wide range of legal areas, ensuring that we can meet all your legal needs with precision and expertise.</p>
+                    <a href="#contact" class="inline-block bg-brand-dark text-brand-gold font-bold py-4 px-10 rounded shadow-2xl hover:bg-brand-brown transition duration-300 text-lg border border-brand-dark/20 hover:text-[#F4D03F]">
                         Inquiry Now
                     </a>
                 </div>
             </section>
         </div>
 
-        <div id="profile-view" class="hidden bg-brand-dark/95 py-10 min-h-screen backdrop-blur-md">
+        <!-- Profile View -->
+        <div id="profile-view" class="hidden bg-brand-dark/95 py-10 min-h-screen backdrop-blur-md section-overlay">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <button onclick="showHome()" class="mb-6 text-brand-gold font-semibold hover:text-brand-text flex items-center transition glass-panel px-4 py-2 rounded">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Directory
@@ -568,8 +623,11 @@
             </div>
         </div>
 
-        <section id="contact" class="py-20 relative" style="background: rgba(38, 28, 23, 0.8); backdrop-filter: blur(12px);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Contact Section with Background Image -->
+        <section id="contact" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80');">
+            <div class="absolute inset-0 bg-brand-dark/85 section-overlay backdrop-blur-[8px]"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div class="reveal">
                         <h2 class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Get In Touch</h2>
@@ -634,10 +692,10 @@
                                 <label class="block text-sm text-brand-muted mb-1">Brief Description</label>
                                 <textarea id="contact-desc" rows="3" class="w-full bg-brand-dark/50 border border-brand-gold/30 rounded p-3 text-brand-text focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none transition"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-[#D33C16] to-[#F4D03F] text-brand-dark font-bold py-3 px-4 rounded hover:opacity-90 transition duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                            <button type="submit" class="w-full bg-gradient-to-r from-[#D33C16] to-[#F4D03F] text-white md:text-brand-dark font-bold py-3 px-4 rounded hover:opacity-90 transition duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
                                 Send Request
                             </button>
-                            <div id="form-success" class="hidden mt-4 p-3 bg-brand-brown border border-green-500 text-green-400 rounded text-center text-sm font-semibold">
+                            <div id="form-success" class="hidden mt-4 p-3 bg-brand-brown border border-green-500 text-green-500 rounded text-center text-sm font-semibold">
                                 Request sent successfully! We will contact you soon.
                             </div>
                         </form>
@@ -651,7 +709,7 @@
         </section>
     </main>
 
-    <footer class="bg-[#1A110B] text-brand-text pt-16 pb-8 border-t-2 border-brand-gold">
+    <footer class="bg-[rgb(var(--brand-footer))] text-brand-text pt-16 pb-8 border-t-2 border-brand-gold transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div class="md:col-span-1">
@@ -661,10 +719,10 @@
                     </div>
                     <p class="text-brand-muted text-sm mb-6">A dynamic and client-focused Indian law firm offering transactional, regulatory, advisory, and dispute resolution services.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-brand-brown border border-brand-gold/20 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -708,7 +766,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/917066160162" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center text-3xl fab-pulse hover:bg-brand-goldHover hover:scale-110 transition duration-300 z-50">
+    <a href="https://wa.me/917066160162" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-brand-gold text-white md:text-brand-dark rounded-full flex items-center justify-center text-3xl fab-pulse hover:bg-brand-goldHover hover:scale-110 transition duration-300 z-50">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -735,6 +793,36 @@
                 e.target.reset();btn.innerHTML=originalText;btn.disabled=!1;
                 setTimeout(()=>{document.getElementById('form-success').classList.add('hidden')},5000)
             },1000)
+        }
+
+        /* --- THEME TOGGLE LOGIC --- */
+        function toggleTheme() {
+            document.documentElement.classList.toggle('light-mode');
+            const isLight = document.documentElement.classList.contains('light-mode');
+            localStorage.setItem('ap_theme', isLight ? 'light' : 'dark');
+            updateThemeIcons(isLight);
+        }
+
+        function updateThemeIcons(isLight) {
+            const desktopIcon = document.querySelector('#theme-toggle i');
+            const mobileIcon = document.querySelector('#theme-toggle-mobile i');
+            
+            // If light mode, show Moon (to switch back to dark). If dark mode, show Sun.
+            const iconClass = isLight ? 'fa-moon' : 'fa-sun';
+            
+            if (desktopIcon) desktopIcon.className = `fa-solid ${iconClass}`;
+            if (mobileIcon) mobileIcon.className = `fa-solid ${iconClass}`;
+        }
+
+        // Initialize Theme from Local Storage
+        function initTheme() {
+            const savedTheme = localStorage.getItem('ap_theme');
+            if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-mode');
+                updateThemeIcons(true);
+            } else {
+                updateThemeIcons(false);
+            }
         }
 
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
@@ -767,7 +855,7 @@
                 const card=document.createElement('div');
                 card.className=`glass-panel rounded-lg overflow-hidden card-hover flex flex-col reveal`;
                 card.style.transitionDelay = `${delay}s`;
-                card.innerHTML=`<div class="h-48 overflow-hidden relative border-b border-brand-gold/20"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-full object-cover object-top opacity-80 hover:opacity-100 transition duration-300"><div class="absolute top-4 right-4 bg-brand-dark/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-gold flex items-center border border-brand-gold/30"><i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}</div></div><div class="p-6 flex-grow flex flex-col"><div class="flex justify-between items-start mb-2"><h4 class="font-serif font-bold text-xl text-brand-text">${lawyer.name}</h4><span class="bg-brand-dark/50 text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-gold/20 flex items-center"><i class="fa-solid fa-shield-check mr-1 text-brand-gold"></i> AP Team</span></div><p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p><div class="space-y-2 mb-6 flex-grow"><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-briefcase w-5 text-brand-gold/70"></i> ${lawyer.experience}+ Years Experience</div><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-location-dot w-5 text-brand-gold/70"></i> ${lawyer.location}</div></div><button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-dark/60 border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-bold py-2 rounded transition duration-300">View Profile</button></div>`;
+                card.innerHTML=`<div class="h-48 overflow-hidden relative border-b border-brand-gold/20"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-full object-cover object-top opacity-80 hover:opacity-100 transition duration-300"><div class="absolute top-4 right-4 bg-brand-dark/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-gold flex items-center border border-brand-gold/30"><i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}</div></div><div class="p-6 flex-grow flex flex-col"><div class="flex justify-between items-start mb-2"><h4 class="font-serif font-bold text-xl text-brand-text">${lawyer.name}</h4><span class="bg-brand-dark/50 text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-gold/20 flex items-center"><i class="fa-solid fa-shield-check mr-1 text-brand-gold"></i> AP Team</span></div><p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p><div class="space-y-2 mb-6 flex-grow"><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-briefcase w-5 text-brand-gold/70"></i> ${lawyer.experience}+ Years Experience</div><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-location-dot w-5 text-brand-gold/70"></i> ${lawyer.location}</div></div><button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-dark/60 border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-white md:hover:text-brand-dark font-bold py-2 rounded transition duration-300">View Profile</button></div>`;
                 grid.appendChild(card)
             });
             attachRevealObserver();
@@ -812,7 +900,7 @@
             const lawyer=lawyers.find(l=>l.id===id);
             if(!lawyer)return;
             const profileContent=document.getElementById('profile-content');
-            profileContent.innerHTML=`<div class="lg:col-span-1"><div class="glass-panel rounded-xl overflow-hidden sticky top-24"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-64 object-cover object-top opacity-90 border-b border-brand-gold/20"><div class="p-6"><h2 class="font-serif text-2xl font-bold text-gradient mb-1">${lawyer.name}</h2><p class="text-brand-gold font-semibold mb-4">${lawyer.specialization}</p><div class="flex items-center text-brand-text font-bold mb-6 bg-brand-dark/50 border border-brand-gold/10 p-3 rounded"><i class="fa-solid fa-star text-brand-gold mr-2 text-xl"></i> <span class="text-xl">${lawyer.rating}</span> <span class="text-brand-muted font-normal text-sm ml-2">(${lawyer.reviews} reviews)</span></div><div class="space-y-3 mb-8"><div class="flex items-start"><i class="fa-solid fa-location-dot text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.location}</span></div><div class="flex items-start"><i class="fa-solid fa-building-columns text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.courts}</span></div><div class="flex items-start"><i class="fa-solid fa-clock text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">Mon - Sat (10:00 AM - 6:00 PM)</span></div></div><a href="#contact" onclick="showHome(); setTimeout(()=>document.getElementById('contact').scrollIntoView(), 100);" class="block text-center w-full bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold py-3 rounded shadow transition duration-300 mb-3">Get In Touch</a><a href="tel:+917066160162" class="block text-center w-full border-2 border-brand-gold text-brand-gold hover:bg-brand-dark/80 font-bold py-3 rounded transition duration-300"><i class="fa-solid fa-phone mr-2"></i> Call Now</a></div></div></div><div class="lg:col-span-2 space-y-8"><div class="glass-panel p-8 rounded-xl"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-gold/20 pb-2">About Team Member</h3><p class="text-brand-muted leading-relaxed mb-6">${lawyer.bio}</p><div class="grid grid-cols-2 gap-4"><div class="bg-brand-dark/50 border border-brand-gold/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Experience</div><div class="font-bold text-brand-text text-lg">${lawyer.experience}+ Years</div></div><div class="bg-brand-dark/50 border border-brand-gold/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Status</div><div class="font-bold text-brand-text text-lg">${lawyer.casesSolved}</div></div></div></div><div class="glass-panel p-8 rounded-xl"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-gold/20 pb-2">Qualifications & Credentials</h3><ul class="space-y-3 text-brand-muted"><li class="flex items-start"><i class="fa-solid fa-graduation-cap text-brand-gold mt-1 mr-3"></i><span>${lawyer.qualifications}</span></li><li class="flex items-start"><i class="fa-solid fa-id-card text-brand-gold mt-1 mr-3"></i><span>Active Role: ${lawyer.specialization}</span></li><li class="flex items-start"><i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-3"></i><span>Primary Area: ${lawyer.courts}</span></li></ul></div></div>`;
+            profileContent.innerHTML=`<div class="lg:col-span-1"><div class="glass-panel rounded-xl overflow-hidden sticky top-24"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-64 object-cover object-top opacity-90 border-b border-brand-gold/20"><div class="p-6"><h2 class="font-serif text-2xl font-bold text-gradient mb-1">${lawyer.name}</h2><p class="text-brand-gold font-semibold mb-4">${lawyer.specialization}</p><div class="flex items-center text-brand-text font-bold mb-6 bg-brand-dark/50 border border-brand-gold/10 p-3 rounded"><i class="fa-solid fa-star text-brand-gold mr-2 text-xl"></i> <span class="text-xl">${lawyer.rating}</span> <span class="text-brand-muted font-normal text-sm ml-2">(${lawyer.reviews} reviews)</span></div><div class="space-y-3 mb-8"><div class="flex items-start"><i class="fa-solid fa-location-dot text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.location}</span></div><div class="flex items-start"><i class="fa-solid fa-building-columns text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.courts}</span></div><div class="flex items-start"><i class="fa-solid fa-clock text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">Mon - Sat (10:00 AM - 6:00 PM)</span></div></div><a href="#contact" onclick="showHome(); setTimeout(()=>document.getElementById('contact').scrollIntoView(), 100);" class="block text-center w-full bg-brand-gold hover:bg-brand-goldHover text-white md:text-brand-dark font-bold py-3 rounded shadow transition duration-300 mb-3">Get In Touch</a><a href="tel:+917066160162" class="block text-center w-full border-2 border-brand-gold text-brand-gold hover:bg-brand-dark/80 font-bold py-3 rounded transition duration-300"><i class="fa-solid fa-phone mr-2"></i> Call Now</a></div></div></div><div class="lg:col-span-2 space-y-8"><div class="glass-panel p-8 rounded-xl"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-gold/20 pb-2">About Team Member</h3><p class="text-brand-muted leading-relaxed mb-6">${lawyer.bio}</p><div class="grid grid-cols-2 gap-4"><div class="bg-brand-dark/50 border border-brand-gold/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Experience</div><div class="font-bold text-brand-text text-lg">${lawyer.experience}+ Years</div></div><div class="bg-brand-dark/50 border border-brand-gold/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Status</div><div class="font-bold text-brand-text text-lg">${lawyer.casesSolved}</div></div></div></div><div class="glass-panel p-8 rounded-xl"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-gold/20 pb-2">Qualifications & Credentials</h3><ul class="space-y-3 text-brand-muted"><li class="flex items-start"><i class="fa-solid fa-graduation-cap text-brand-gold mt-1 mr-3"></i><span>${lawyer.qualifications}</span></li><li class="flex items-start"><i class="fa-solid fa-id-card text-brand-gold mt-1 mr-3"></i><span>Active Role: ${lawyer.specialization}</span></li><li class="flex items-start"><i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-3"></i><span>Primary Area: ${lawyer.courts}</span></li></ul></div></div>`;
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('profile-view').classList.remove('hidden');
             window.scrollTo({top:0,behavior:'smooth'})
@@ -875,6 +963,7 @@
 
 
         document.addEventListener('DOMContentLoaded', () => {
+            initTheme(); // Initialize theme configuration
             renderLawyers(lawyers);
             
             setTimeout(typeEffect, 1500); 
