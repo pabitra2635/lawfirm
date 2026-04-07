@@ -814,15 +814,33 @@
             if (mobileIcon) mobileIcon.className = `fa-solid ${iconClass}`;
         }
 
-        // Initialize Theme from Local Storage
+        // Initialize Theme from Local Storage or System Preferences
         function initTheme() {
             const savedTheme = localStorage.getItem('ap_theme');
-            if (savedTheme === 'light') {
+            const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+
+            // Apply light mode if saved as light, or if no save exists and system is light
+            if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
                 document.documentElement.classList.add('light-mode');
                 updateThemeIcons(true);
             } else {
+                document.documentElement.classList.remove('light-mode');
                 updateThemeIcons(false);
             }
+
+            // Listen for system theme changes dynamically
+            window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+                // Only automatically change theme if the user hasn't set a manual preference
+                if (!localStorage.getItem('ap_theme')) { 
+                    if (e.matches) {
+                        document.documentElement.classList.add('light-mode');
+                        updateThemeIcons(true);
+                    } else {
+                        document.documentElement.classList.remove('light-mode');
+                        updateThemeIcons(false);
+                    }
+                }
+            });
         }
 
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
@@ -963,7 +981,7 @@
 
 
         document.addEventListener('DOMContentLoaded', () => {
-            initTheme(); // Initialize theme configuration
+            initTheme(); // Initialize theme configuration based on system defaults or local storage
             renderLawyers(lawyers);
             
             setTimeout(typeEffect, 1500); 
