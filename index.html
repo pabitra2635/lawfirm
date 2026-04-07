@@ -385,7 +385,7 @@
                 </div>
             </section>
 
-            <!-- Practice Areas Section with Background Image -->
+            <!-- UPDATED Practice Areas Section (Image Box Layout) -->
             <section id="practice-areas" class="py-20 relative bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=1920&q=80');">
                 <div class="absolute inset-0 bg-brand-dark/90 section-overlay backdrop-blur-[4px]"></div>
                 
@@ -397,93 +397,139 @@
                     </div>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal">
+                        
+                        <!-- Item 1: Corporate & Commercial -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between">
                             <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                            <div class="relative z-10">
-                                <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
-                                    <i class="fa-solid fa-coins"></i>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/006-corporate.png" alt="Corporate & Commercial" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
                                 </div>
-                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Banking & Finance Law</h4>
-                                <p class="text-xs text-brand-muted">Expert handling of SARFAESI, DRT matters, and financial compliance.</p>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Corporate & Commercial</h4>
                             </div>
                         </div>
                         
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.1s;">
+                        <!-- Item 2: Dispute Resolution -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.1s;">
                             <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                            <div class="relative z-10">
-                                <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
-                                    <i class="fa-solid fa-scale-balanced"></i>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/010-dispute.png" alt="Dispute Resolution" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
                                 </div>
-                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Civil & Commercial Litigation</h4>
-                                <p class="text-xs text-brand-muted">Strategic representation in diverse civil and commercial disputes.</p>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Dispute Resolution</h4>
                             </div>
                         </div>
 
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.2s;">
+                        <!-- Item 3: Life Sciences & Healthcare -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.2s;">
                             <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                            <div class="relative z-10">
-                                <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
-                                    <i class="fa-solid fa-gavel"></i>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/life-sience.png" alt="Life Sciences & Healthcare" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
                                 </div>
-                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Criminal Law</h4>
-                                <p class="text-xs text-brand-muted">Assistance with Bail, Quashing of FIRs, and Trial proceedings.</p>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Life Sciences & Healthcare</h4>
                             </div>
                         </div>
 
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.3s;">
+                        <!-- Item 4: Education -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.3s;">
                             <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                            <div class="relative z-10">
-                                <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
-                                    <i class="fa-solid fa-landmark"></i>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/002-education.png" alt="Education" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
                                 </div>
-                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Constitutional & Writ</h4>
-                                <p class="text-xs text-brand-muted">Handling writ jurisdictions before the Hon’ble High Court.</p>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Education</h4>
                             </div>
                         </div>
 
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal">
+                        <!-- Item 5: Labour and Employment -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between">
                             <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                            <div class="relative z-10">
-                                <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
-                                    <i class="fa-solid fa-handshake"></i>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/labour.png" alt="Labour and Employment" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
                                 </div>
-                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Arbitration & Dispute</h4>
-                                <p class="text-xs text-brand-muted">Alternative dispute resolution and arbitration advisory.</p>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Labour and Employment</h4>
                             </div>
                         </div>
 
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.1s;">
+                        <!-- Item 6: Licensing, Franchising and Trading -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.1s;">
                             <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                            <div class="relative z-10">
-                                <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
-                                    <i class="fa-solid fa-money-bill-wave"></i>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/008-franchise.png" alt="Licensing, Franchising and Trading" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
                                 </div>
-                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Debt Recovery & NPA</h4>
-                                <p class="text-xs text-brand-muted">Specialized advisory for non-performing asset recoveries.</p>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Licensing, Franchising and Trading</h4>
                             </div>
                         </div>
 
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.2s;">
+                        <!-- Item 7: Real Estate -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.2s;">
                             <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                            <div class="relative z-10">
-                                <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
-                                    <i class="fa-solid fa-file-signature"></i>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/real-estate-office-1520727-1295657.png" alt="Real Estate" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
                                 </div>
-                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">OTS Negotiations</h4>
-                                <p class="text-xs text-brand-muted">Expert guidance on One Time Settlement negotiations with banks.</p>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Real Estate</h4>
                             </div>
                         </div>
 
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal" style="transition-delay: 0.3s;">
+                        <!-- Item 8: Telecommunications, Satellite and IT -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.3s;">
                             <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                            <div class="relative z-10">
-                                <div class="w-16 h-16 mx-auto bg-brand-dark/50 border border-brand-gold/30 rounded-full flex items-center justify-center text-brand-gold text-2xl mb-4 group-hover:bg-brand-gold group-hover:text-brand-dark transition duration-300">
-                                    <i class="fa-solid fa-briefcase"></i>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/telecomunication.png" alt="Telecommunications, Satellite and IT" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
                                 </div>
-                                <h4 class="font-serif font-bold text-brand-text mb-2 group-hover:text-brand-gold transition duration-300">Corporate Advisory</h4>
-                                <p class="text-xs text-brand-muted">Guidance on governance, mergers, and business planning.</p>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Telecommunications & IT</h4>
                             </div>
                         </div>
+
+                        <!-- Item 9: Outsourcing -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between">
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/outsourcing.png" alt="Outsourcing" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Outsourcing</h4>
+                            </div>
+                        </div>
+
+                        <!-- Item 10: Intellectual Property -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.1s;">
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/dispute.png" alt="Intellectual Property" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Intellectual Property</h4>
+                            </div>
+                        </div>
+
+                        <!-- Item 11: Banking, Finance and Capital Markets -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.2s;">
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/anking.png" alt="Banking, Finance and Capital Markets" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Banking & Finance Law</h4>
+                            </div>
+                        </div>
+
+                        <!-- Item 12: Taxation -->
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group reveal flex flex-col justify-between" style="transition-delay: 0.3s;">
+                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="relative z-10 flex flex-col h-full items-center">
+                                <div class="w-24 h-24 mb-4 rounded-full bg-white/5 border border-brand-gold/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.2)]">
+                                    <img src="https://lexcounsel.in/wp-content/uploads/2021/12/tax.png" alt="Taxation" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500">
+                                </div>
+                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Taxation</h4>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
