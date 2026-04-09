@@ -249,7 +249,21 @@
             100% { box-shadow: 0 0 0 0 rgb(var(--brand-gold) / 0); }
         }
         .fab-pulse { animation: pulse-glow 2s infinite; }
+
+        @keyframes pulse-glow-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .fab-pulse-green { animation: pulse-glow-green 2s infinite; }
+        
         .section-overlay { transition: background-color 0.5s ease; }
+
+        /* Light mode specific background overlay to show images with a white-to-dark gradient */
+        .light-mode .section-overlay {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(30, 20, 15, 0.55) 100%) !important;
+        }
+
     </style>
     <script>
         document.addEventListener('contextmenu', e => e.preventDefault());
@@ -294,7 +308,7 @@
                         <i class="fa-solid fa-phone mr-2"></i> +91 70661 60162
                     </a>
                 </div>
-                <div class="md:hidden flex items-center space-x-3">
+                <div class="md:hidden flex items-center space-x-5">
                     <button onclick="toggleLang()" class="font-bold text-brand-gold border border-brand-gold/40 px-2 py-1 rounded text-xs hover:bg-brand-gold hover:text-brand-dark transition focus:outline-none">
                         <span id="lang-indicator-mobile">हिन्दी</span>
                     </button>
@@ -883,7 +897,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/917066160162" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-brand-gold text-white rounded-full flex items-center justify-center text-3xl fab-pulse hover:bg-brand-goldHover hover:scale-110 transition duration-300 z-50">
+    <a href="https://wa.me/917066160162" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl fab-pulse-green hover:bg-[#128C7E] hover:scale-110 transition duration-300 z-50">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -980,7 +994,7 @@
             "faq-sub": { en: "Common Queries", hi: "सामान्य प्रश्न" },
             "faq-main": { en: "Frequently Asked Questions", hi: "अक्सर पूछे जाने वाले प्रश्न" },
             "q1": { en: "What should I do if I receive a DRT notice from a bank?", hi: "यदि मुझे बैंक से DRT नोटिस मिले तो क्या करें?" },
-            "a1": { en: "Do not ignore it. Contact a specialized DRT lawyer immediately. You typically have a strict time limit (usually 30 days under SARFAESI) to file a reply or an SA (Securitization Application) to protect your assets. Delaying can result in the bank taking physical possession of your property.", hi: "इसे नज़रअंदाज़ न करें। तुरंत एक विशेषज्ञ DRT वकील से संपर्क करें। अपनी संपत्ति की सुरक्षा के लिए जवाब या SA (Securitization Application) दाखिल करने के लिए आपके पास आम तौर पर एक सख्त समय सीमा (अक्सर 30 दिन) होती है। देरी करने पर बैंक आपकी संपत्ति पर भौतिक कब्ज़ा कर सकता है।" },
+            "a1": { en: "Do not ignore it. Contact a specialized DRT lawyer immediately. You typically have a strict time limit (usually 30 days under SARFAESI) to file a reply or an SA (Securitization Application) to protect your assets. Delaying can result in the bank taking physical possession of your property.", hi: "इसे नज़रअंदाज़ न करें। तुरंत एक विशेषज्ञ DRT वकील से संपर्क करें। अपनी संपत्ति की सुरक्षा के लिए जवाब या SA (Securitization Application) दाखिल करने के लिए आपके पास आम तौर पर एक सख्त মোহलत (अक्सर 30 दिन) होती है। देरी करने पर बैंक आपकी संपत्ति पर भौतिक कब्ज़ा कर सकता है।" },
             "q2": { en: "How much does an initial legal consultation cost?", hi: "प्रारंभिक कानूनी परामर्श की लागत कितनी है?" },
             "a2": { en: "We offer a transparent fee structure. To start, we offer a free initial 15-minute phone evaluation. After understanding the complexity of your situation, we will provide a clear, upfront estimate of the legal fees required to proceed with your case.", hi: "हम एक पारदर्शी शुल्क संरचना प्रदान करते हैं। आरंभ करने के लिए, हम 15 मिनट का निःशुल्क फोन मूल्यांकन प्रदान करते हैं। आपकी स्थिति की जटिलता को समझने के बाद, हम मामले के लिए आवश्यक कानूनी शुल्क का स्पष्ट अनुमान प्रदान करेंगे।" },
             "q3": { en: "What areas of law do you primarily specialize in?", hi: "आप मुख्य रूप से किन कानूनी क्षेत्रों के विशेषज्ञ हैं?" },
