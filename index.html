@@ -309,6 +309,35 @@
         .practice-card:hover h4 { color: rgb(var(--brand-gold)) !important; }
         .practice-card:hover .icon-wrapper { background: rgba(212, 175, 55, 0.15) !important; }
 
+        .premium-shimmer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .premium-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.15), transparent);
+            transform: skewX(-25deg);
+            animation: premium-shimmer-anim 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        .light-mode .premium-shimmer::before {
+            background: linear-gradient(to right, transparent, rgba(184, 134, 11, 0.1), transparent);
+        }
+        @keyframes premium-shimmer-anim {
+            0% { left: -150%; }
+            40% { left: 200%; }
+            100% { left: 200%; }
+        }
     </style>
     <script>
         document.addEventListener('contextmenu', e => e.preventDefault());
@@ -327,7 +356,8 @@
 <body class="antialiased relative selection:bg-brand-gold selection:text-brand-dark">
 
     <nav class="bg-brand-dark text-brand-text border-b border-brand-border/20 sticky top-0 z-50 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transition-colors duration-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="premium-shimmer"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center cursor-pointer" onclick="window.location.hash='#home'">
                     <img src="https://i.ibb.co/WpK3nq1S/Whats-App-Image-2026-04-04-at-1-38-32-PM.jpg" alt="Anjaneya Pramana Logo" class="h-12 w-auto mr-3 rounded shadow-[0_0_10px_rgba(212,175,55,0.3)] border border-brand-border/30">
@@ -366,7 +396,7 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-brown pb-4 px-4 space-y-3 border-b border-brand-border/20">
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-brown pb-4 px-4 space-y-3 border-b border-brand-border/20 relative z-10">
             <a href="#about" class="block text-brand-text hover:text-brand-gold py-2" data-i18n="nav-about">About Firm</a>
             <a href="#practice-areas" class="block text-brand-text hover:text-brand-gold py-2" data-i18n="nav-practice">Practice Areas</a>
             <a href="#lawyers" class="block text-brand-text hover:text-brand-gold py-2" data-i18n="nav-team">Our Team</a>
