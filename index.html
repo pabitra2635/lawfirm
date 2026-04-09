@@ -358,7 +358,7 @@
                 <!-- Slides Container -->
                 <div id="slider-container" class="relative w-full h-full">
                     
-                    <!-- Slide 1: Welcome & Typewriter -->
+                    <!-- Slide 1: Welcome & Typewriter (No Buttons) -->
                     <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
                         <div class="absolute inset-0 bg-cover bg-center md:bg-fixed" style="background-image: url('https://i.ibb.co/NPcqWp8/inside-a-lawyer-s-office-1920w.webp');"></div>
                         <div class="absolute inset-0 bg-brand-dark/85 section-overlay"></div>
@@ -369,41 +369,64 @@
                             <div class="text-lg md:text-2xl font-bold text-brand-text mb-6 typing-cursor" style="min-height: 32px;">
                                 <span data-i18n="expertise-in">Expertise in:</span> <span id="typewriter" class="text-brand-gold"></span>
                             </div>
-                            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                                <a href="#lawyers" class="bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-3 px-6 rounded shadow-lg transition duration-300">Meet Our Team</a>
-                                <a href="#contact" class="glass-panel text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-bold py-3 px-6 rounded shadow-lg transition duration-300">Get Free Evaluation</a>
-                            </div>
+                            <p class="text-lg md:text-xl text-brand-muted max-w-3xl mx-auto" data-i18n="hero-subtitle">
+                                Dynamic, ethical, and result-oriented legal services. Expert legal advocacy based in Patna, Bihar.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Slide 2: Testimonial/Quote -->
+                    <!-- Slide 2: Best Lawyers in Patna -->
                     <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
                         <div class="absolute inset-0 bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1920&q=80');"></div>
                         <div class="absolute inset-0 bg-brand-dark/85 section-overlay"></div>
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
                             <div class="max-w-4xl mx-auto mt-6">
-                                <i class="fa-solid fa-quote-left text-brand-gold/50 text-4xl mb-4"></i>
-                                <h2 class="font-serif text-2xl md:text-4xl font-bold mb-6 text-brand-text leading-snug">
-                                    "Highest client satisfaction rating amongst top law firms in Bihar"
+                                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4 text-brand-text leading-snug" data-i18n="slide2-title">
+                                    Ranked Among the <br><span class="text-gradient">Best Lawyers in Patna</span>
                                 </h2>
-                                <p class="text-brand-gold font-semibold text-lg md:text-xl">- Trusted by 100+ Corporate Clients</p>
+                                <p class="text-brand-gold font-semibold text-lg md:text-xl mb-8" data-i18n="slide2-sub">
+                                    Providing unmatched legal representation across the High Court, DRT, and Civil Courts.
+                                </p>
+                                <a href="#contact" class="bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-3 px-8 rounded shadow-lg transition duration-300 text-lg" data-i18n="btn-inquiry">
+                                    Get Free Evaluation
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 3: Results -->
+                    <!-- Slide 3: Our Expert Team -->
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+                        <div class="absolute inset-0 bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="absolute inset-0 bg-brand-dark/85 section-overlay"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+                            <div class="max-w-4xl mx-auto mt-6">
+                                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4 text-gradient leading-snug" data-i18n="slide3-title">
+                                    Our Expert Legal Team
+                                </h2>
+                                <p class="text-brand-text font-medium text-lg md:text-xl mb-8 max-w-2xl mx-auto" data-i18n="slide3-sub">
+                                    A dedicated group of highly skilled advocates committed to securing justice and favorable outcomes for our clients.
+                                </p>
+                                <a href="#lawyers" class="glass-panel text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-bold py-3 px-8 rounded shadow-lg transition duration-300 text-lg" data-i18n="btn-team">
+                                    Meet Our Team
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Results & Services -->
                     <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
                         <div class="absolute inset-0 bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80');"></div>
                         <div class="absolute inset-0 bg-brand-dark/85 section-overlay"></div>
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
                             <div class="max-w-4xl mx-auto mt-6">
-                                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4 text-gradient leading-snug">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold/50 text-5xl mb-4"></i>
+                                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4 text-gradient leading-snug" data-i18n="slide4-title">
                                     Result-Oriented Legal Strategy
                                 </h2>
-                                <p class="text-brand-text font-medium text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                                <p class="text-brand-text font-medium text-lg md:text-xl mb-8 max-w-2xl mx-auto" data-i18n="slide4-sub">
                                     We combine extensive legal expertise with a practical approach to resolve complex issues efficiently.
                                 </p>
-                                <a href="#practice-areas" class="bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-3 px-8 rounded shadow-lg transition duration-300 text-lg">
+                                <a href="#practice-areas" class="bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-3 px-8 rounded shadow-lg transition duration-300 text-lg" data-i18n="btn-explore">
                                     Explore Our Services
                                 </a>
                             </div>
@@ -425,6 +448,7 @@
                     <button onclick="goToSlide(0)" class="slide-dot w-3 h-3 md:w-4 md:h-4 rounded-full bg-brand-gold shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all focus:outline-none"></button>
                     <button onclick="goToSlide(1)" class="slide-dot w-3 h-3 md:w-4 md:h-4 rounded-full bg-white/40 hover:bg-white/70 transition-all focus:outline-none"></button>
                     <button onclick="goToSlide(2)" class="slide-dot w-3 h-3 md:w-4 md:h-4 rounded-full bg-white/40 hover:bg-white/70 transition-all focus:outline-none"></button>
+                    <button onclick="goToSlide(3)" class="slide-dot w-3 h-3 md:w-4 md:h-4 rounded-full bg-white/40 hover:bg-white/70 transition-all focus:outline-none"></button>
                 </div>
             </section>
 
@@ -1037,8 +1061,15 @@
             "btn-team": { en: "Meet Our Team", hi: "हमारी टीम से मिलें" },
             "btn-inquiry": { en: "Get Free Evaluation", hi: "निःशुल्क मूल्यांकन प्राप्त करें" },
             "btn-inquiry-2": { en: "Get Free Evaluation", hi: "निःशुल्क मूल्यांकन प्राप्त करें" },
+            "btn-explore": { en: "Explore Our Services", hi: "हमारी सेवाएं देखें" },
             "btn-search": { en: "Search", hi: "खोजें" },
             "btn-back": { en: "Back to Directory", hi: "वापस जाएँ" },
+            "slide2-title": { en: 'Ranked Among the <br><span class="text-gradient">Best Lawyers in Patna</span>', hi: 'पटना के <br><span class="text-gradient">सर्वश्रेष्ठ वकीलों</span> में शुमार' },
+            "slide2-sub": { en: "Providing unmatched legal representation across the High Court, DRT, and Civil Courts.", hi: "हाई कोर्ट, डीआरटी और सिविल कोर्ट में बेजोड़ कानूनी प्रतिनिधित्व।" },
+            "slide3-title": { en: 'Our Expert Legal Team', hi: 'हमारी विशेषज्ञ कानूनी टीम' },
+            "slide3-sub": { en: "A dedicated group of highly skilled advocates committed to securing justice and favorable outcomes for our clients.", hi: "हमारे ग्राहकों के लिए न्याय और अनुकूल परिणाम सुनिश्चित करने के लिए प्रतिबद्ध अत्यधिक कुशल अधिवक्ताओं का एक समर्पित समूह।" },
+            "slide4-title": { en: 'Result-Oriented Legal Strategy', hi: 'परिणाम-उन्मुख कानूनी रणनीति' },
+            "slide4-sub": { en: "We combine extensive legal expertise with a practical approach to resolve complex issues efficiently.", hi: "हम जटिल मुद्दों को कुशलतापूर्वक हल करने के लिए व्यावहारिक दृष्टिकोण के साथ व्यापक कानूनी विशेषज्ञता को जोड़ते हैं।" },
             "heading-profile": { en: "Our Profile", hi: "हमारी प्रोफ़ाइल" },
             "heading-welcome": { en: "Welcome To Anjaneya Pramana", hi: "आंजनेय प्रमाण में आपका स्वागत है" },
             "heading-ambition": { en: "Our Ambition", hi: "हमारी महत्वाकांक्षा" },
