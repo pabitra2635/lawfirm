@@ -360,26 +360,14 @@
                     <!-- Slide 1 -->
                     <div class="w-full h-full flex-shrink-0 relative">
                         <img src="https://t4.ftcdn.net/jpg/06/30/02/39/360_F_630023928_XxF1TXveKuH8rzhedzdb7MJVxvxVZ5Jn.jpg" class="w-full h-full object-cover object-center" alt="Law">
-                        <div class="absolute inset-0 bg-brand-dark/70 flex flex-col items-center justify-center section-overlay">
-                            <h2 class="text-xl md:text-3xl font-serif text-brand-gold font-bold drop-shadow-lg text-center px-4 mb-2 tracking-wide uppercase" data-i18n="slide-1-title">Justice & Integrity</h2>
-                            <p class="text-xs md:text-sm text-brand-text tracking-widest uppercase font-medium" data-i18n="slide-1-sub">Upholding the highest legal standards</p>
-                        </div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="w-full h-full flex-shrink-0 relative">
                         <img src="https://i.ibb.co/3yYvk4Wj/Gemini-Generated-Image-hp2d2khp2d2khp2d.jpg" class="w-full h-full object-cover object-center" alt="Lawyer">
-                        <div class="absolute inset-0 bg-brand-dark/70 flex flex-col items-center justify-center section-overlay">
-                            <h2 class="text-xl md:text-3xl font-serif text-brand-gold font-bold drop-shadow-lg text-center px-4 mb-2 tracking-wide uppercase" data-i18n="slide-2-title">Expert Advocacy</h2>
-                            <p class="text-xs md:text-sm text-brand-text tracking-widest uppercase font-medium" data-i18n="slide-2-sub">Result-oriented legal solutions</p>
-                        </div>
                     </div>
                     <!-- Slide 3 -->
                     <div class="w-full h-full flex-shrink-0 relative">
                         <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover object-center" alt="Gavel">
-                        <div class="absolute inset-0 bg-brand-dark/70 flex flex-col items-center justify-center section-overlay">
-                            <h2 class="text-xl md:text-3xl font-serif text-brand-gold font-bold drop-shadow-lg text-center px-4 mb-2 tracking-wide uppercase" data-i18n="slide-3-title">Specialized in DRT</h2>
-                            <p class="text-xs md:text-sm text-brand-text tracking-widest uppercase font-medium" data-i18n="slide-3-sub">Protecting your financial assets</p>
-                        </div>
                     </div>
                 </div>
                 <!-- Slider Controls -->
@@ -1018,12 +1006,6 @@
 
         // Translation Dictionary
         const translations = {
-            "slide-1-title": { en: "Justice & Integrity", hi: "न्याय और सत्यनिष्ठा" },
-            "slide-1-sub": { en: "Upholding the highest legal standards", hi: "उच्चतम कानूनी मानकों को बनाए रखना" },
-            "slide-2-title": { en: "Expert Advocacy", hi: "विशेषज्ञ वकालत" },
-            "slide-2-sub": { en: "Result-oriented legal solutions", hi: "परिणाम-उन्मुख कानूनी समाधान" },
-            "slide-3-title": { en: "Specialized in DRT", hi: "डीआरटी (DRT) में विशेषज्ञ" },
-            "slide-3-sub": { en: "Protecting your financial assets", hi: "आपकी वित्तीय संपत्तियों की सुरक्षा" },
             "nav-home": { en: "Home", hi: "होम" },
             "nav-about": { en: "About Firm", hi: "फर्म के बारे में" },
             "nav-practice": { en: "Practice Areas", hi: "अभ्यास क्षेत्र" },
@@ -1254,11 +1236,15 @@
         }
 
         function resetFilters(){
-            document.getElementById('filter-area').value='all';
-            document.getElementById('filter-location').value='all';
-            document.getElementById('filter-experience').value='all';
+            const filterArea = document.getElementById('filter-area');
+            if(filterArea) filterArea.value='all';
+            const filterLoc = document.getElementById('filter-location');
+            if(filterLoc) filterLoc.value='all';
+            const filterExp = document.getElementById('filter-experience');
+            if(filterExp) filterExp.value='all';
             renderLawyers(lawyers);
-            closeSearchResults()
+            const searchArea = document.getElementById('search-results-area');
+            if(searchArea) searchArea.classList.add('hidden');
         }
 
         function showHome(){
