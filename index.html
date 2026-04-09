@@ -161,15 +161,15 @@
         }
 
         .light-mode {
-            --brand-dark: 236 230 218; 
-            --brand-brown: 222 213 197; 
-            --brand-card: 247 243 235; 
-            --brand-text: 20 15 10; 
-            --brand-muted: 90 70 55; 
-            --brand-footer: 222 213 197; 
-            --brand-gold: 180 120 10; 
-            --brand-gold-hover: 140 90 5;
-            --brand-border: 40 30 20; 
+            --brand-dark: 250 248 242;   /* Off-white/cream background */
+            --brand-brown: 240 235 225;  /* Secondary light background */
+            --brand-card: 255 255 255;   /* Pure white cards */
+            --brand-text: 34 34 34;      /* Deep charcoal text for readability */
+            --brand-muted: 102 102 102;  /* Medium grey for muted text */
+            --brand-footer: 240 235 225; /* Matches secondary */
+            --brand-gold: 184 134 11;    /* Dark Goldenrod for better contrast on white */
+            --brand-gold-hover: 153 101 21;
+            --brand-border: 184 134 11;  /* Gold borders */
         }
 
         body { 
@@ -259,10 +259,31 @@
         
         .section-overlay { transition: background-color 0.5s ease; }
 
-        /* Light mode specific background overlay to show images with a white-to-dark gradient */
+        /* Light mode specific background overlay to keep dark text readable */
         .light-mode .section-overlay {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(30, 20, 15, 0.55) 100%) !important;
+            background: rgba(250, 248, 242, 0.88) !important;
         }
+
+        /* Practice Cards Alternating Colors (Overrides Global Light/Dark Mode) */
+        .practice-card:nth-child(odd) { background: rgba(38, 28, 23, 0.9) !important; }
+        .practice-card:nth-child(even) { background: rgba(250, 248, 242, 0.95) !important; border-color: rgba(212, 175, 55, 0.4) !important; }
+        
+        .practice-card:nth-child(odd) .hover-overlay { background: rgba(58, 42, 34, 0.8) !important; }
+        .practice-card:nth-child(even) .hover-overlay { background: rgba(240, 235, 225, 0.9) !important; }
+        
+        .practice-card:nth-child(odd) .icon-wrapper { background: rgba(255, 255, 255, 0.05) !important; }
+        .practice-card:nth-child(even) .icon-wrapper { background: rgba(0, 0, 0, 0.05) !important; }
+
+        /* Darken PNG images on the white (even) practice cards */
+        .practice-card:nth-child(even) .icon-wrapper img {
+            filter: brightness(0.15) drop-shadow(0 4px 3px rgba(0,0,0,0.07)) !important;
+        }
+        
+        .practice-card:nth-child(odd) h4 { color: #FDF6E3 !important; }
+        .practice-card:nth-child(even) h4 { color: #222222 !important; }
+        
+        .practice-card:hover h4 { color: rgb(var(--brand-gold)) !important; }
+        .practice-card:hover .icon-wrapper { background: rgba(212, 175, 55, 0.15) !important; }
 
     </style>
     <script>
@@ -332,34 +353,84 @@
 
     <main id="app-content">
         <div id="home-view">
-            <!-- Hero Section -->
-            <section class="py-24 md:py-32 relative border-b border-brand-border/10 bg-cover bg-center md:bg-fixed" style="background-image: url('https://i.ibb.co/NPcqWp8/inside-a-lawyer-s-office-1920w.webp');">
-                <div class="absolute inset-0 bg-brand-dark/85 section-overlay"></div>
-                
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4 leading-tight text-gradient" data-i18n="hero-title">
-                        Anjaneya Pramana <br>Legal Associates
-                    </h1>
-                    <div class="text-xl md:text-3xl font-bold text-brand-text mb-6 typing-cursor" style="min-height: 40px;">
-                        <span data-i18n="expertise-in">Expertise in:</span> <span id="typewriter" class="text-brand-gold"></span>
+            <!-- Hero Slider Section -->
+            <section id="hero-slider-section" class="relative w-full overflow-hidden h-[45vh] lg:h-[55vh] min-h-[450px] border-b border-brand-border/10 group">
+                <!-- Slides Container -->
+                <div id="slider-container" class="relative w-full h-full">
+                    
+                    <!-- Slide 1: Welcome & Typewriter -->
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
+                        <div class="absolute inset-0 bg-cover bg-center md:bg-fixed" style="background-image: url('https://i.ibb.co/NPcqWp8/inside-a-lawyer-s-office-1920w.webp');"></div>
+                        <div class="absolute inset-0 bg-brand-dark/85 section-overlay"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 mt-6">
+                            <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-gradient" data-i18n="hero-title">
+                                Anjaneya Pramana <br>Legal Associates
+                            </h1>
+                            <div class="text-lg md:text-2xl font-bold text-brand-text mb-6 typing-cursor" style="min-height: 32px;">
+                                <span data-i18n="expertise-in">Expertise in:</span> <span id="typewriter" class="text-brand-gold"></span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                                <a href="#lawyers" class="bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-3 px-6 rounded shadow-lg transition duration-300">Meet Our Team</a>
+                                <a href="#contact" class="glass-panel text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-bold py-3 px-6 rounded shadow-lg transition duration-300">Get Free Evaluation</a>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-lg md:text-xl text-brand-muted mb-10 max-w-3xl mx-auto" data-i18n="hero-subtitle">
-                        Dynamic, ethical, and result-oriented legal services. Expert legal advocacy based in Patna, Bihar.
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#lawyers" class="bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-4 px-8 rounded shadow-lg shadow-brand-gold/20 transition duration-300 text-lg" data-i18n="btn-team">
-                            Meet Our Team
-                        </a>
-                        <a href="#contact" class="glass-panel text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-bold py-4 px-8 rounded shadow-lg transition duration-300 text-lg" data-i18n="btn-inquiry">
-                            Get Free Evaluation
-                        </a>
+
+                    <!-- Slide 2: Testimonial/Quote -->
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+                        <div class="absolute inset-0 bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="absolute inset-0 bg-brand-dark/85 section-overlay"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+                            <div class="max-w-4xl mx-auto mt-6">
+                                <i class="fa-solid fa-quote-left text-brand-gold/50 text-4xl mb-4"></i>
+                                <h2 class="font-serif text-2xl md:text-4xl font-bold mb-6 text-brand-text leading-snug">
+                                    "Highest client satisfaction rating amongst top law firms in Bihar"
+                                </h2>
+                                <p class="text-brand-gold font-semibold text-lg md:text-xl">- Trusted by 100+ Corporate Clients</p>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Slide 3: Results -->
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+                        <div class="absolute inset-0 bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="absolute inset-0 bg-brand-dark/85 section-overlay"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+                            <div class="max-w-4xl mx-auto mt-6">
+                                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4 text-gradient leading-snug">
+                                    Result-Oriented Legal Strategy
+                                </h2>
+                                <p class="text-brand-text font-medium text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                                    We combine extensive legal expertise with a practical approach to resolve complex issues efficiently.
+                                </p>
+                                <a href="#practice-areas" class="bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-3 px-8 rounded shadow-lg transition duration-300 text-lg">
+                                    Explore Our Services
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controls (Arrows) -->
+                <button onclick="prevSlide()" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-dark/70 border border-brand-gold/50 text-brand-gold flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 focus:outline-none shadow-lg">
+                    <i class="fa-solid fa-chevron-left text-lg"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-dark/70 border border-brand-gold/50 text-brand-gold flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 focus:outline-none shadow-lg">
+                    <i class="fa-solid fa-chevron-right text-lg"></i>
+                </button>
+
+                <!-- Indicators (Dots) -->
+                <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3 z-20 pb-10">
+                    <button onclick="goToSlide(0)" class="slide-dot w-3 h-3 md:w-4 md:h-4 rounded-full bg-brand-gold shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all focus:outline-none"></button>
+                    <button onclick="goToSlide(1)" class="slide-dot w-3 h-3 md:w-4 md:h-4 rounded-full bg-white/40 hover:bg-white/70 transition-all focus:outline-none"></button>
+                    <button onclick="goToSlide(2)" class="slide-dot w-3 h-3 md:w-4 md:h-4 rounded-full bg-white/40 hover:bg-white/70 transition-all focus:outline-none"></button>
                 </div>
             </section>
 
             <!-- Search Area -->
-            <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-10 z-20">
-                <div class="glass-panel rounded-xl p-6">
+            <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-14 z-20">
+                <div class="glass-panel rounded-xl p-6 shadow-2xl">
                     <form onsubmit="event.preventDefault(); filterLawyers();" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div class="md:col-span-1">
                             <label class="block text-sm font-semibold text-brand-gold mb-1" data-i18n="filter-area">Practice Area</label>
@@ -482,88 +553,88 @@
                     </div>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/006-corporate.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Corporate & Commercial</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/006-corporate.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Corporate & Commercial</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/010-dispute.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Dispute Resolution</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/010-dispute.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Dispute Resolution</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/life-sience.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Life Sciences & Healthcare</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/life-sience.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Life Sciences & Healthcare</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/002-education.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Education</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/002-education.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Education</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/labour.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Labour & Employment</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/labour.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Labour & Employment</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/008-franchise.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Licensing, Franchising & Trading</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/008-franchise.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Licensing, Franchising & Trading</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/real-estate-office-1520727-1295657.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Real Estate</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/real-estate-office-1520727-1295657.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Real Estate</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/telecomunication.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Telecom & IT</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/telecomunication.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Telecom & IT</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/outsourcing.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Outsourcing</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/outsourcing.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Outsourcing</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/dispute.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Intellectual Property</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/dispute.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Intellectual Property</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/anking.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Banking & Finance Law</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/anking.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Banking & Finance Law</h4>
                             </div>
                         </div>
-                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-brand-brown/50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="glass-panel p-6 rounded-lg text-center card-hover relative overflow-hidden group flex flex-col justify-between practice-card">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 hover-overlay"></div>
                             <div class="relative z-10 flex flex-col h-full items-center">
-                                <div class="w-24 h-24 mb-4 rounded-full bg-brand-text/5 border border-brand-border/30 p-4 flex items-center justify-center group-hover:bg-brand-gold/10 transition duration-300 flex-shrink-0"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/tax.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
-                                <h4 class="font-serif font-bold text-brand-text group-hover:text-brand-gold transition duration-300 mt-auto">Taxation</h4>
+                                <div class="w-24 h-24 mb-4 rounded-full border border-brand-border/30 p-4 flex items-center justify-center transition duration-300 flex-shrink-0 icon-wrapper"><img src="https://lexcounsel.in/wp-content/uploads/2021/12/tax.png" alt="Icon" class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition duration-500"></div>
+                                <h4 class="font-serif font-bold transition duration-300 mt-auto">Taxation</h4>
                             </div>
                         </div>
                     </div>
@@ -1112,7 +1183,8 @@
                 const card=document.createElement('div');
                 card.className=`glass-panel rounded-lg overflow-hidden card-hover flex flex-col`;
                 card.style.transitionDelay = `${delay}s`;
-                card.innerHTML=`<div class="h-48 overflow-hidden relative border-b border-brand-border/20"><img src="${lawyer.image}" alt="${lawyer.name}" loading="lazy" class="w-full h-full object-cover object-top opacity-80 hover:opacity-100 transition duration-300"><div class="absolute top-4 right-4 bg-brand-dark/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-gold flex items-center border border-brand-border/30"><i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}</div></div><div class="p-6 flex-grow flex flex-col"><div class="flex justify-between items-start mb-2"><h4 class="font-serif font-bold text-xl text-brand-text">${lawyer.name}</h4><span class="bg-brand-dark/50 text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-border/20 flex items-center"><i class="fa-solid fa-shield-check mr-1 text-brand-gold"></i> AP Team</span></div><p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p><div class="space-y-2 mb-6 flex-grow"><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-briefcase w-5 text-brand-gold/70"></i> ${lawyer.experience}+ Years Experience</div><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-location-dot w-5 text-brand-gold/70"></i> ${lawyer.location}</div></div><button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-dark/60 border border-brand-border/40 text-brand-gold hover:bg-brand-gold hover:text-white md:hover:text-brand-dark font-bold py-2 rounded transition duration-300">View Profile</button></div>`;
+                // REMOVED opacity-80 and hover:opacity-100 FROM THE IMG TAG BELOW
+                card.innerHTML=`<div class="h-48 overflow-hidden relative border-b border-brand-border/20"><img src="${lawyer.image}" alt="${lawyer.name}" loading="lazy" class="w-full h-full object-cover object-top transition duration-300"><div class="absolute top-4 right-4 bg-brand-dark/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-bold text-brand-gold flex items-center border border-brand-border/30"><i class="fa-solid fa-star text-brand-gold mr-1"></i> ${lawyer.rating}</div></div><div class="p-6 flex-grow flex flex-col"><div class="flex justify-between items-start mb-2"><h4 class="font-serif font-bold text-xl text-brand-text">${lawyer.name}</h4><span class="bg-brand-dark/50 text-brand-gold text-xs font-bold px-2 py-1 rounded border border-brand-border/20 flex items-center"><i class="fa-solid fa-shield-check mr-1 text-brand-gold"></i> AP Team</span></div><p class="text-brand-gold font-semibold text-sm mb-4">${lawyer.specialization}</p><div class="space-y-2 mb-6 flex-grow"><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-briefcase w-5 text-brand-gold/70"></i> ${lawyer.experience}+ Years Experience</div><div class="flex items-center text-sm text-brand-muted"><i class="fa-solid fa-location-dot w-5 text-brand-gold/70"></i> ${lawyer.location}</div></div><button onclick="showProfile(${lawyer.id})" class="w-full bg-brand-dark/60 border border-brand-border/40 text-brand-gold hover:bg-brand-gold hover:text-white md:hover:text-brand-dark font-bold py-2 rounded transition duration-300">View Profile</button></div>`;
                 grid.appendChild(card)
             });
         }
@@ -1156,10 +1228,74 @@
             const lawyer=lawyers.find(l=>l.id===id);
             if(!lawyer)return;
             const profileContent=document.getElementById('profile-content');
-            profileContent.innerHTML=`<div class="lg:col-span-1"><div class="glass-panel rounded-xl overflow-hidden sticky top-24"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-64 object-cover object-top opacity-90 border-b border-brand-border/20"><div class="p-6"><h2 class="font-serif text-2xl font-bold text-gradient mb-1">${lawyer.name}</h2><p class="text-brand-gold font-semibold mb-4">${lawyer.specialization}</p><div class="flex items-center text-brand-text font-bold mb-6 bg-brand-dark/50 border border-brand-border/10 p-3 rounded"><i class="fa-solid fa-star text-brand-gold mr-2 text-xl"></i> <span class="text-xl">${lawyer.rating}</span> <span class="text-brand-muted font-normal text-sm ml-2">(${lawyer.reviews} reviews)</span></div><div class="space-y-3 mb-8"><div class="flex items-start"><i class="fa-solid fa-location-dot text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.location}</span></div><div class="flex items-start"><i class="fa-solid fa-building-columns text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.courts}</span></div><div class="flex items-start"><i class="fa-solid fa-clock text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">Mon - Sat (10:00 AM - 6:00 PM)</span></div></div><a href="#contact" onclick="showHome(); setTimeout(()=>document.getElementById('contact').scrollIntoView(), 100);" class="block text-center w-full bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-3 rounded shadow transition duration-300 mb-3">Get Free Evaluation</a><a href="tel:+917066160162" class="block text-center w-full border-2 border-brand-gold text-brand-gold hover:bg-brand-dark/80 font-bold py-3 rounded transition duration-300"><i class="fa-solid fa-phone mr-2"></i> Call Now</a></div></div></div><div class="lg:col-span-2 space-y-8"><div class="glass-panel p-8 rounded-xl"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-border/20 pb-2">About Team Member</h3><p class="text-brand-muted leading-relaxed mb-6">${lawyer.bio}</p><div class="grid grid-cols-2 gap-4"><div class="bg-brand-dark/50 border border-brand-border/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Experience</div><div class="font-bold text-brand-text text-lg">${lawyer.experience}+ Years</div></div><div class="bg-brand-dark/50 border border-brand-border/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Status</div><div class="font-bold text-brand-text text-lg">${lawyer.casesSolved}</div></div></div></div><div class="glass-panel p-8 rounded-xl"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-border/20 pb-2">Qualifications & Credentials</h3><ul class="space-y-3 text-brand-muted"><li class="flex items-start"><i class="fa-solid fa-graduation-cap text-brand-gold mt-1 mr-3"></i><span>${lawyer.qualifications}</span></li><li class="flex items-start"><i class="fa-solid fa-id-card text-brand-gold mt-1 mr-3"></i><span>Active Role: ${lawyer.specialization}</span></li><li class="flex items-start"><i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-3"></i><span>Primary Area: ${lawyer.courts}</span></li></ul></div></div>`;
+            // REMOVED opacity-90 FROM THE IMG TAG BELOW
+            profileContent.innerHTML=`<div class="lg:col-span-1"><div class="glass-panel rounded-xl overflow-hidden sticky top-24"><img src="${lawyer.image}" alt="${lawyer.name}" class="w-full h-64 object-cover object-top border-b border-brand-border/20"><div class="p-6"><h2 class="font-serif text-2xl font-bold text-gradient mb-1">${lawyer.name}</h2><p class="text-brand-gold font-semibold mb-4">${lawyer.specialization}</p><div class="flex items-center text-brand-text font-bold mb-6 bg-brand-dark/50 border border-brand-border/10 p-3 rounded"><i class="fa-solid fa-star text-brand-gold mr-2 text-xl"></i> <span class="text-xl">${lawyer.rating}</span> <span class="text-brand-muted font-normal text-sm ml-2">(${lawyer.reviews} reviews)</span></div><div class="space-y-3 mb-8"><div class="flex items-start"><i class="fa-solid fa-location-dot text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.location}</span></div><div class="flex items-start"><i class="fa-solid fa-building-columns text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">${lawyer.courts}</span></div><div class="flex items-start"><i class="fa-solid fa-clock text-brand-gold/70 mt-1 w-6"></i><span class="text-brand-muted text-sm">Mon - Sat (10:00 AM - 6:00 PM)</span></div></div><a href="#contact" onclick="showHome(); setTimeout(()=>document.getElementById('contact').scrollIntoView(), 100);" class="block text-center w-full bg-brand-gold hover:bg-brand-goldHover text-[#261C17] font-bold py-3 rounded shadow transition duration-300 mb-3">Get Free Evaluation</a><a href="tel:+917066160162" class="block text-center w-full border-2 border-brand-gold text-brand-gold hover:bg-brand-dark/80 font-bold py-3 rounded transition duration-300"><i class="fa-solid fa-phone mr-2"></i> Call Now</a></div></div></div><div class="lg:col-span-2 space-y-8"><div class="glass-panel p-8 rounded-xl"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-border/20 pb-2">About Team Member</h3><p class="text-brand-muted leading-relaxed mb-6">${lawyer.bio}</p><div class="grid grid-cols-2 gap-4"><div class="bg-brand-dark/50 border border-brand-border/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Experience</div><div class="font-bold text-brand-text text-lg">${lawyer.experience}+ Years</div></div><div class="bg-brand-dark/50 border border-brand-border/10 p-4 rounded"><div class="text-sm text-brand-gold/70 mb-1">Status</div><div class="font-bold text-brand-text text-lg">${lawyer.casesSolved}</div></div></div></div><div class="glass-panel p-8 rounded-xl"><h3 class="font-serif text-2xl font-bold text-gradient mb-4 border-b border-brand-border/20 pb-2">Qualifications & Credentials</h3><ul class="space-y-3 text-brand-muted"><li class="flex items-start"><i class="fa-solid fa-graduation-cap text-brand-gold mt-1 mr-3"></i><span>${lawyer.qualifications}</span></li><li class="flex items-start"><i class="fa-solid fa-id-card text-brand-gold mt-1 mr-3"></i><span>Active Role: ${lawyer.specialization}</span></li><li class="flex items-start"><i class="fa-solid fa-scale-balanced text-brand-gold mt-1 mr-3"></i><span>Primary Area: ${lawyer.courts}</span></li></ul></div></div>`;
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('profile-view').classList.remove('hidden');
             window.scrollTo({top:0,behavior:'smooth'})
+        }
+
+        // Hero Slider Logic
+        let currentSlide = 0;
+        let slideInterval;
+        let isSliderPaused = false; // Pause flag
+
+        function updateSlider() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            
+            if (!slides.length) return;
+
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.remove('opacity-0', 'z-0');
+                    slide.classList.add('opacity-100', 'z-10');
+                    if(dots[index]) dots[index].classList.replace('bg-white/40', 'bg-brand-gold');
+                    if(dots[index]) dots[index].classList.add('shadow-[0_0_8px_rgba(212,175,55,0.8)]');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'z-0');
+                    if(dots[index]) dots[index].classList.replace('bg-brand-gold', 'bg-white/40');
+                    if(dots[index]) dots[index].classList.remove('shadow-[0_0_8px_rgba(212,175,55,0.8)]');
+                }
+            });
+        }
+
+        function nextSlide() {
+            const slides = document.querySelectorAll('.hero-slide');
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+            resetInterval();
+        }
+
+        function prevSlide() {
+            const slides = document.querySelectorAll('.hero-slide');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+            resetInterval();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            if (!isSliderPaused) {
+                slideInterval = setInterval(nextSlide, 5000); // 5 seconds autoplay if not paused
+            }
+        }
+
+        function pauseSlider() {
+            isSliderPaused = true;
+            clearInterval(slideInterval);
+        }
+
+        function resumeSlider() {
+            isSliderPaused = false;
+            resetInterval();
         }
 
         // Typewriter Effect
@@ -1219,7 +1355,20 @@
             initTheme();
             applyLanguage();
             renderLawyers(lawyers);
+            
+            // Initialize slider events to pause on hover/touch
+            const sliderSection = document.getElementById('hero-slider-section');
+            if (sliderSection) {
+                sliderSection.addEventListener('mouseenter', pauseSlider);
+                sliderSection.addEventListener('mouseleave', resumeSlider);
+                sliderSection.addEventListener('touchstart', pauseSlider, {passive: true});
+                sliderSection.addEventListener('touchend', resumeSlider, {passive: true});
+            }
+            
+            // Initialize the interval and typewriter
+            resetInterval();
             setTimeout(typeEffect, 1500); 
+            
             const numbersSection = document.getElementById('numbers-section');
             if (numbersSection) countObserver.observe(numbersSection);
         });
